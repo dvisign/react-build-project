@@ -7,7 +7,10 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Mainslider bo_table="mainslider" />
+        <Mainslider 
+          bo_table="mainslider"
+          status="main" 
+        />
       </div>
     )
   }
