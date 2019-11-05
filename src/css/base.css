@@ -77,6 +77,10 @@ a {color:#000;text-decoration:none}
   z-index: 10000;
   height: 60px;
   line-height: 60px;
+  transition: 1s ease-in-out;
+}
+#mainNavs.navScrollOn {
+  background: rgba(255, 255, 255, 0.8);
 }
 #fixNavs {
   width: 100%;
@@ -94,6 +98,10 @@ a {color:#000;text-decoration:none}
 #mainLogo {
   width: 140px;
   float:left;
+}
+#mainLogo a {
+  position: relative;
+  top: -4px;
 }
 #mainLogo img {
   width: 100%;
@@ -155,4 +163,9 @@ a {color:#000;text-decoration:none}
 .mNavActive > #line3 {
   transform: translate3d(0,-10px,0) rotate(315deg) scale(1.2, 1);
   background: #fff;
+}
+.navScrollOn #line1, 
+.navScrollOn #line2, 
+.navScrollOn #line3 {
+  background: #232f61;
 }

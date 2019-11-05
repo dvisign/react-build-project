@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../img/dbrand_logo.png';
-import LogoOn from '../img/dbrand_logo_on.png';
 
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      addClass : false,
-      logoImg : ""
+      addClass : false
     }
   }
   navEvent = () => {
@@ -30,12 +27,12 @@ class Nav extends Component {
   }
   render() {
     return (
-      <div id="mainNavs">
+      <div id="mainNavs" class={this.props.navActive}>
         <div className="customContainer">
           <div className="clear">
             <div id="mainLogo">
               <Link to="/">
-                <img src={Logo} alt="DBRAND" />
+                <img src={this.props.logo} alt="DBRAND" />
               </Link>
             </div>
             <div id="mainMenu">

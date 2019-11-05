@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Slider from "react-slick";
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../../css/main.css';
 
 class Mainslider extends Component {
@@ -50,7 +50,7 @@ class Mainslider extends Component {
                   <div className={"slideContents slideAlign"+sliders.wr_aligin}>
                     <h1 className="sliderTitle" style={{color:"#"+sliders.titleColor}}>{sliders.wr_subject}</h1>
                     <p className="sliderText" style={{color:"#"+sliders.textColor}}>{sliders.wr_text}</p>
-                    <a className="sliderLink" href="#">+</a>
+                    <Link className="sliderLink" href="#">+</Link>
                   </div>
                 </div>
               </div>

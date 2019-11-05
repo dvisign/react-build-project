@@ -68,3 +68,13 @@
   font-size: 20px;
   color:#fff;
 }
+/* work */
+#indexWork {
+  padding-bottom: 220px;
+  padding-top: 90px;
+}
+#indexWorkTitle {
+  text-align: left;
+  color: #232f61;
+  font-size: 45px;
+}
