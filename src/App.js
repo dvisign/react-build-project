@@ -8,7 +8,7 @@ class App extends Component {
     return(
       <div className="wrapper">
         <Nav />
-        <div>
+        <div className="pageContents">
           <Route exact path="/" component={Main} />
           <Route exact path="/About" component={About} />
           <Route exact path="/Work" component={Work} />
