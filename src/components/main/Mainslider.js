@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Slider from "react-slick";
 import Link from 'react-router-dom';
-import '../css/main.css';
+import '../../css/main.css';
 
 class Mainslider extends Component {
   state = {
@@ -19,7 +19,6 @@ class Mainslider extends Component {
       }
     })
     .then(response => {
-      console.log(response.data)
       this.setState({
         getData: response.data
       })
@@ -35,18 +34,22 @@ class Mainslider extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      afterChange: function(currentSlide) {
+        console.log(currentSlide + 1);
+        document.getElementById("sliderCounter").innerHTML = currentSlide + 1;
+      }
     }
     return (
-      <div>
+      <div class="sliderComponents">
         <Slider className="sliderWrapper" {...slideSettings}>
           {this.state.getData.map(sliders => (
             <div className="sliderItems">
               <div className="sliderImgs" style={{backgroundImage : "url("+sliders.wr_img+")"}}>
                 <div className="customContainer">
-                  <div className="slideContents" style={{textAlign:sliders.wr_aligin}}>
-                    <h1 className="sliderTitle">{sliders.wr_subject}</h1>
-                    <p className="sliderText">{sliders.wr_text}</p>
+                  <div className={"slideContents slideAlign"+sliders.wr_aligin}>
+                    <h1 className="sliderTitle" style={{color:"#"+sliders.titleColor}}>{sliders.wr_subject}</h1>
+                    <p className="sliderText" style={{color:"#"+sliders.textColor}}>{sliders.wr_text}</p>
                     <a className="sliderLink" href="#">+</a>
                   </div>
                 </div>
@@ -54,6 +57,9 @@ class Mainslider extends Component {
             </div>
           ))}
         </Slider>
+        <div className="sliderCounter">
+          <span id="sliderCounter">1</span>/<span id="sliderAllCounter">{this.state.getData.length}</span>
+        </div>
       </div>
     )
   }

@@ -1,4 +1,7 @@
 /* 메인슬라이드 */
+.sliderComponents {
+  position: relative;
+}
 .sliderImgs {
   width:100%;
   height: 100vh;
@@ -13,11 +16,17 @@
   height: 100%;
 }
 .slideContents {
-  color:#fff;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 100%;
+}
+.slideAlignleft {
+  left: 0;
+  text-align: left;
+}
+.slideAlignright {
+  right: 0;
+  text-align: right;
 }
 .sliderTitle {
   font-size: 2.2rem;
@@ -26,10 +35,36 @@
 .sliderText {
   margin:20px auto;
   font-size: 1.3rem;
+  width: 70%;
+  word-break: keep-all;
+}
+.slideAlignleft .sliderText {
+  margin-left: 0;
+}
+.slideAlignright .sliderText {
+  margin-right: 0;
 }
 .sliderLink {
 
 }
 .slick-dots {
   bottom: 30px;
+}
+.slick-dots li button:before {
+  font-size: 12px;
+  transition: 0.5s;
+}
+.slick-dots li.slick-active button:before {
+  color:#ff2f92;
+}
+.slick-dots li button:before {
+  color:#fff;
+}
+.sliderCounter {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  transition: 0.5s;
+  font-size: 20px;
+  color:#fff;
 }

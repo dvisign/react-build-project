@@ -10,10 +10,10 @@ class App extends Component {
         <Nav />
         <div className="pageContents">
           <Route exact path="/" component={Main} />
-          <Route exact path="/About" component={About} />
-          <Route exact path="/Work" component={Work} />
-          <Route exact path="/Life" component={Life} />
-          <Route exact path="/Contact" component={Contact} />
+          <Route path="/About" component={About} />
+          <Route path="/Work" component={Work} />
+          <Route path="/Life" component={Life} />
+          <Route path="/Contact" component={Contact} />
         </div>
       </div>
     )

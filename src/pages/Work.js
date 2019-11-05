@@ -1,6 +1,18 @@
 import React, { Component } from 'react'
 
 class Work extends Component {
+  componentDidMount() {
+    this.addHtmlClass();
+  }
+  componentWillUnmount() {
+    this.removeHtmlClass();
+  }
+  addHtmlClass = () => {
+    document.getElementsByTagName('html')[0].classList.add("work")
+  }
+  removeHtmlClass = () => {
+    document.getElementsByTagName('html')[0].classList.remove("work")
+  }
   render() {
     return (
       <div>
