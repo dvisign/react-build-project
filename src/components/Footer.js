@@ -25,12 +25,12 @@ class Footer extends Component {
             </ul>
             <ul id="footerSns" className="clear">
               <li>
-                <a href="#">
+                <a href="/">
                   <img src={instarIcon} alt="sns" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="/">
                   <img src={blogIcon} alt="sns" />
                 </a>
               </li>

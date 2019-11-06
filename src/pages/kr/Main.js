@@ -15,6 +15,7 @@ class Main extends Component {
   }
   addHtmlClass = () => {
     document.getElementsByTagName('html')[0].classList.add("main")
+    console.log(this.props.match.url);
   }
   removeHtmlClass = () => {
     document.getElementsByTagName('html')[0].classList.remove("main")

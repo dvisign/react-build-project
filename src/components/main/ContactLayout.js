@@ -63,7 +63,7 @@ class ContactLayout extends Component {
   }
   componentWillUnmount() {
     clearInterval(() => {
-      this.tineInit();
+      this.timeInit();
     })
   }
   render() {

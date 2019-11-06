@@ -9,6 +9,9 @@ class WorkLayout extends Component {
   componentWillMount() {
     this.getSlideData();      
   }
+  componentWillUnmount() {
+    this.getSlideData();
+  }
   getSlideData = () => {
     axios.get("/api",{
       params : {
