@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { Main, About, Work, Life, Contact } from 'pages/kr';
 import Logo from 'img/dbrand_logo.png';
 import LogoOn from 'img/dbrand_logo_on.png';
+import "animate.css/animate.min.css";
 
 
 class App extends Component {

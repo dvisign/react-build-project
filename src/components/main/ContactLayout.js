@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 class ContactLayout extends Component {
   constructor(props) {
@@ -52,12 +53,16 @@ class ContactLayout extends Component {
       <div id="indexContact">
         <div className="customContainer">
           <div id="contactTitle">
-            <h1 className="avenir_bold">Hello</h1>
-            <p className="avenir_heavy">What brings you here?</p>
+            <ScrollAnimation animateIn="fadeInUp">
+              <h1 className="avenir_bold">Hello</h1>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeInUp" delay={250}>
+              <p className="avenir_heavy">What brings you here?</p>
+            </ScrollAnimation>
           </div>
           <div id="pointAdd" className="clear">
             {this.state.points.map((pointInfo, i) => (
-              <div>
+              <ScrollAnimation animateIn="fadeInUp" delay={i*500}>
                 <div className="times">
                   <span id={"timeZone"+ i } className="timeZone avenir_heavy">{pointInfo.pointTime}</span>
                 </div>
@@ -73,7 +78,7 @@ class ContactLayout extends Component {
                 <div className="pointMap">
                   <a href={"https://www.google.com/maps/place/(%EC%A3%BC)%EB%94%94%EB%B8%8C%EB%9E%9C%EB%93%9C/@"+pointInfo.let+","+pointInfo.lang+"z/data=!3m1!4b1!4m5!3m4!1s0x357b7bdcffffffff:0x409a33f70cc51b6e!8m2!3d37.3814779!4d126.6631831?hl=ko"} target="blank"><FontAwesomeIcon icon={faMapMarkerAlt} />구글맵에서 보기</a>
                 </div>
-              </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

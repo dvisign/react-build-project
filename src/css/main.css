@@ -109,14 +109,14 @@
   left: 0;
   top: -127px;
 }
-#contactTitle > h1 {
+#contactTitle h1 {
   color: #ff2f92;
   font-size: 12.5rem;
   position: relative;
   left: -11px;
   line-height: 1;
 }
-#contactTitle > p {
+#contactTitle p {
   color: #fff;
   font-size: 55px;
   margin-top: 45px;

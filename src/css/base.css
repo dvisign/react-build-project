@@ -156,14 +156,14 @@ a {color:#000;text-decoration:none}
 }
 .mNavActive > #line1 {
   transform: translate3d(0,10px,0) rotate(225deg) scale(1.2, 1);
-  background: #fff;
+  background: #fff !important;
 }
 .mNavActive > #line2 {
   opacity: 0;
 }
 .mNavActive > #line3 {
   transform: translate3d(0,-10px,0) rotate(315deg) scale(1.2, 1);
-  background: #fff;
+  background: #fff !important;
 }
 .navScrollOn #line1, 
 .navScrollOn #line2, 
