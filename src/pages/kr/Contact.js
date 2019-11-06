@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class Contact extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.addHtmlClass();
   }
   componentWillUnmount() {

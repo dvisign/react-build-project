@@ -6,7 +6,7 @@ class WorkLayout extends Component {
   state = {
     getData : []
   }
-  componentDidMount() {
+  componentWillMount() {
     this.getSlideData();      
   }
   getSlideData = () => {

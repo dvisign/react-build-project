@@ -26,12 +26,6 @@ class ContactLayout extends Component {
       ]
     }
   }
-  componentDidMount() {
-    setInterval(() => {
-      document.getElementById("timeZone0").innerHTML = this.timeCount(+9);
-      document.getElementById("timeZone1").innerHTML = this.timeCount(+2);
-    }, 1000);
-  }
   timeCount = (offset) => {
     const now = new Date();
     const tz = now.getTime() + (now.getTimezoneOffset() * 60000) + (offset * 3600000);
@@ -50,6 +44,10 @@ class ContactLayout extends Component {
     return zero + n;
   }
   render() {
+    setInterval(() => {
+      document.getElementById("timeZone0").innerHTML = this.timeCount(+9);
+      document.getElementById("timeZone1").innerHTML = this.timeCount(+2);
+    }, 1000);
     return (
       <div id="indexContact">
         <div className="customContainer">

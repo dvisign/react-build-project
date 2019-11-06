@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 
-class About extends Component {
-  componentDidMount() {
+class Life extends Component {
+  componentWillMount() {
     this.addHtmlClass();
   }
   componentWillUnmount() {
     this.removeHtmlClass();
   }
   addHtmlClass = () => {
-    document.getElementsByTagName('html')[0].classList.add("about")
+    document.getElementsByTagName('html')[0].classList.add("life")
   }
   removeHtmlClass = () => {
-    document.getElementsByTagName('html')[0].classList.remove("about")
+    document.getElementsByTagName('html')[0].classList.remove("life")
   }
   render() {
     return (
       <div>
-        we are
+        life
       </div>
     )
   }
 }
 
-export default About;
+export default Life;

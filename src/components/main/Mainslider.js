@@ -8,7 +8,7 @@ class Mainslider extends Component {
   state = {
     getData : []
   }
-  componentDidMount() {
+  componentWillMount() {
     this.getSlideData();      
   }
   getSlideData = () => {

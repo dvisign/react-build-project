@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
+import Nav from 'components/Nav';
+import Footer from 'components/Footer';
 import { Route } from 'react-router-dom';
-import { Main, About, Work, Life, Contact } from 'pages';
-import Logo from './img/dbrand_logo.png';
-import LogoOn from './img/dbrand_logo_on.png';
+import { Main, About, Work, Life, Contact } from 'pages/kr';
+import Logo from 'img/dbrand_logo.png';
+import LogoOn from 'img/dbrand_logo_on.png';
 
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       navActive : ""
     }
   }
-  componentDidMount(){
+  componentWillMount(){
     // 스크롤 이벤트 적용
     window.addEventListener('scroll', this.onScroll);
   }
@@ -44,10 +44,10 @@ class App extends Component {
         />
         <div className="pageContents">
           <Route exact path="/" component={Main} />
-          <Route path="/About" component={About} />
-          <Route path="/Work" component={Work} />
-          <Route path="/Life" component={Life} />
-          <Route path="/Contact" component={Contact} />
+          <Route path="/about" component={About} />
+          <Route path="/work" component={Work} />
+          <Route path="/life" component={Life} />
+          <Route path="/contact" component={Contact} />
         </div>
         <Footer 
         
