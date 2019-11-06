@@ -38,7 +38,7 @@ class Nav extends Component {
             <div id="mainMenu">
               <div id="langSelect"></div>
               <div id="searchBtn">
-                <button><i class="fas fa-search"></i></button>
+                <button><i className="fas fa-search"></i></button>
               </div>
               <div id="hamburgers">
                 <button id="hamburgersBtn" onClick={this.navEvent}>

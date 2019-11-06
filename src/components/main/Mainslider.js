@@ -41,7 +41,7 @@ class Mainslider extends Component {
       }
     }
     return (
-      <div class="sliderComponents">
+      <div className="sliderComponents">
         <Slider className="sliderWrapper" {...slideSettings}>
           {this.state.getData.map(sliders => (
             <div className="sliderItems">

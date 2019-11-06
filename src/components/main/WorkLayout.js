@@ -32,7 +32,7 @@ class WorkLayout extends Component {
       <div id="indexWork">
         <div className="customContainer">
           <div id="indexWorkTitle">
-            <h1 class="avenir_heavy">{this.props.titles}</h1>
+            <h1 className="avenir_heavy">{this.props.titles}</h1>
           </div>
           {dataResult.length === 0 ? (
             <div>작성된 글이 없습니다.</div>
