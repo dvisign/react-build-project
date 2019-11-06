@@ -4,6 +4,7 @@ import WorkLayout from '../../components/main/WorkLayout';
 import ContactLayout from '../../components/main/ContactLayout'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'css/main.css';
 
 class Main extends Component {
   componentWillMount() {

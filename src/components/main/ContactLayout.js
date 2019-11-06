@@ -9,7 +9,7 @@ class ContactLayout extends Component {
     this.state = {
       points : [
         {
-          pointTime : "00:00:00",
+          pointTime : "",
           pointName : "Songdo",
           pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
           pointTel : "02.1544.0218",
@@ -17,7 +17,7 @@ class ContactLayout extends Component {
           lang : "126.6567071"
         },
         {
-          pointTime : "00:00:00",
+          pointTime : "",
           pointName : "Milano",
           pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
           pointTel : "02.1544.0218",
@@ -44,11 +44,29 @@ class ContactLayout extends Component {
     }
     return zero + n;
   }
-  render() {
+  timeInit() {
+    this.setState({
+      points : [
+        {
+          pointTime : this.timeCount(+9)
+        },
+        {
+          pointTime : this.timeCount(+2)
+        }
+      ]
+    })
+  }
+  componentDidMount() {
     setInterval(() => {
-      document.getElementById("timeZone0").innerHTML = this.timeCount(+9);
-      document.getElementById("timeZone1").innerHTML = this.timeCount(+2);
+      this.timeInit();
     }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(() => {
+      this.tineInit();
+    })
+  }
+  render() {
     return (
       <div id="indexContact">
         <div className="customContainer">

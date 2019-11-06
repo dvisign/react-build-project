@@ -17,22 +17,27 @@ class App extends Component {
     }
   }
   componentWillMount(){
-    // 스크롤 이벤트 적용
     window.addEventListener('scroll', this.onScroll);
   }
   onScroll = (e) => {
-    // 스크롤 할때마다 state에 scroll한 만큼 scrollTop 값 증가하므로 이를 업데이트해줌, 
-    //따라서 스크롤 시점에 따라 특정액션을 추후에 state를 활용하여 구현 가능
     const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);
-    if (nowPos > 0) {
+    const htmlClass = document.getElementsByTagName("html")[0].classList;
+    if (htmlClass.contains('main')) {
+      if (nowPos > 0) {
+        this.setState({
+          logoImg : LogoOn,
+          navActive : "navScrollOn"
+        })
+      } else {
+        this.setState({
+          logoImg : Logo,
+          navActive : ""
+        })
+      }
+    } else {
       this.setState({
         logoImg : LogoOn,
         navActive : "navScrollOn"
-      })
-    } else {
-      this.setState({
-        logoImg : Logo,
-        navActive : ""
       })
     }
   };

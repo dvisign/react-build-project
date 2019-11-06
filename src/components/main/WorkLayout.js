@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import '../../css/main.css';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 class WorkLayout extends Component {
   state = {
@@ -31,9 +31,11 @@ class WorkLayout extends Component {
     return (
       <div id="indexWork">
         <div className="customContainer">
-          <div id="indexWorkTitle">
-            <h1 className="avenir_heavy">{this.props.titles}</h1>
-          </div>
+          <ScrollAnimation animateIn="fadeInUp">
+            <div id="indexWorkTitle"> 
+              <h1 className="avenir_heavy">{this.props.titles}</h1>
+            </div>
+          </ScrollAnimation>
           {dataResult.length === 0 ? (
             <div>작성된 글이 없습니다.</div>
           ):(
