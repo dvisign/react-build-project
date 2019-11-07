@@ -18,6 +18,16 @@ class App extends Component {
   }
   UNSAFE_componentWillMount(){
     window.addEventListener('scroll', this.onScroll);
+    this.navEvent();
+  }
+  navEvent = () => {
+    const htmlClass = document.getElementsByTagName("html")[0].classList;
+    if (!htmlClass.contains('main')) {
+      this.setState({
+        logoImg : LogoOn,
+        navActive : "navScrollOn"
+      })
+    }
   }
   onScroll = (e) => {
     const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);

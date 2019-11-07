@@ -48,10 +48,20 @@ class ContactLayout extends Component {
     this.setState({
       points : [
         {
-          pointTime : this.timeCount(+9)
+          pointTime : this.timeCount(+9),
+          pointName : "Songdo",
+          pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
+          pointTel : "02.1544.0218",
+          let : "37.380596",
+          lang : "126.6567071"
         },
         {
-          pointTime : this.timeCount(+2)
+          pointTime : this.timeCount(+2),
+          pointName : "Milano",
+          pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
+          pointTel : "02.1544.0218",
+          let : "37.380596",
+          lang : "126.6567071"
         }
       ]
     })
@@ -71,16 +81,16 @@ class ContactLayout extends Component {
       <div id="indexContact">
         <div className="customContainer">
           <div id="contactTitle">
-            <ScrollAnimation animateIn="fadeInUp">
+            <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
               <h1 className="avenir_bold">Hello</h1>
             </ScrollAnimation>
-            <ScrollAnimation animateIn="fadeInUp" delay={250}>
+            <ScrollAnimation animateIn="fadeInUp" delay={250} animateOnce={true}>
               <p className="avenir_heavy">What brings you here?</p>
             </ScrollAnimation>
           </div>
           <div id="pointAdd" className="clear">
             {this.state.points.map((pointInfo, index) => (
-              <ScrollAnimation animateIn="fadeInUp" delay={index*500} key={index}>
+              <ScrollAnimation animateIn="fadeInUp" delay={index*500} key={index} animateOnce={true}>
                 <div className="times">
                   <span id={"timeZone"+ index } className="timeZone avenir_heavy">{pointInfo.pointTime}</span>
                 </div>
