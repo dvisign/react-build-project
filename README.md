@@ -4,7 +4,7 @@
 - 서버위치 : /api/index.php
 - 사용법 : axios get?쿼리파라미터 전달
 - status 
-1. GET Mathod
+1| GET Mathod
 1) main : $status = "main" $bo_table 게시판의 댓글이 아닌 글을 모두 조회 메인슬라이드 출력시 사용<br /> 
 - 전송 파라미터<br />
 bo_table : 조회할 게시판 table <br />
