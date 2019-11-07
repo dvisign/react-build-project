@@ -79,13 +79,13 @@ class ContactLayout extends Component {
             </ScrollAnimation>
           </div>
           <div id="pointAdd" className="clear">
-            {this.state.points.map((pointInfo, i) => (
-              <ScrollAnimation animateIn="fadeInUp" delay={i*500}>
+            {this.state.points.map((pointInfo, index) => (
+              <ScrollAnimation animateIn="fadeInUp" delay={index*500} key={index}>
                 <div className="times">
-                  <span id={"timeZone"+ i } className="timeZone avenir_heavy">{pointInfo.pointTime}</span>
+                  <span id={"timeZone"+ index } className="timeZone avenir_heavy">{pointInfo.pointTime}</span>
                 </div>
                 <div className="pointName">
-                  <span class="pointLogo"></span><span class="avenir_heavy">{pointInfo.pointName}</span>
+                  <span className="pointLogo"></span><span className="avenir_heavy">{pointInfo.pointName}</span>
                 </div>
                 <div className="pointAddress">
                   <span className="avenir_light" dangerouslySetInnerHTML={{__html: pointInfo.pointAddress}}></span>

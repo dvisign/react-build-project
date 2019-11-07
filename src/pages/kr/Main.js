@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import 'css/main.css';
 
 class Main extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.addHtmlClass();
   }
   componentWillUnmount() {
@@ -21,16 +21,19 @@ class Main extends Component {
     document.getElementsByTagName('html')[0].classList.remove("main")
   }
   render() {
+    const hostName = window.location.hostname;
     return (
       <div>
         <Mainslider 
           bo_table="mainslider"
-          status="main" 
+          status="main"
+          host={hostName} 
         />
         <WorkLayout 
           bo_table="work"
           status="list"
           titles="Work"
+          host={hostName}
         />
         <ContactLayout 
           

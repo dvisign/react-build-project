@@ -47,17 +47,17 @@
 /* .sliderLink {
 
 } */
-.slick-dots {
+.sliderComponents .slick-dots {
   bottom: 30px;
 }
-.slick-dots li button:before {
+.sliderComponents .slick-dots li button:before {
   font-size: 12px;
   transition: 0.5s;
 }
-.slick-dots li.slick-active button:before {
+.sliderComponents .slick-dots li.slick-active button:before {
   color:#ff2f92;
 }
-.slick-dots li button:before {
+.sliderComponents .slick-dots li button:before {
   color:#fff;
 }
 .sliderCounter {

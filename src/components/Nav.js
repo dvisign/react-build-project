@@ -27,7 +27,7 @@ class Nav extends Component {
   }
   render() {
     return (
-      <div id="mainNavs" class={this.props.navActive}>
+      <div id="mainNavs" className={this.props.navActive}>
         <div className="customContainer">
           <div className="clear">
             <div id="mainLogo">

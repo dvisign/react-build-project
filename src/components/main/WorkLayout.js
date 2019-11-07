@@ -6,28 +6,32 @@ class WorkLayout extends Component {
   state = {
     getData : []
   }
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getSlideData();      
   }
   componentWillUnmount() {
     this.getSlideData();
   }
   getSlideData = () => {
-    axios.get("/api",{
-      params : {
-        bo_table : this.props.bo_table,
-        status : this.props.status
-      }
-    })
-    .then(response => {
-      console.log(response.data)
-      this.setState({
-        getData: response.data
+    if (this.props.host === "localhost") {
+      console.log("로컬작업")
+    } else {
+      axios.get("/api",{
+        params : {
+          bo_table : this.props.bo_table,
+          status : this.props.status
+        }
       })
-    })
-    .catch(response => {
-      console.log(response.data)
-    });
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          getData: response.data
+        })
+      })
+      .catch(response => {
+        console.log(response.data)
+      });
+    }
   }
   render() {
     let dataResult = this.state.getData;

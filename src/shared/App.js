@@ -16,7 +16,7 @@ class App extends Component {
       navActive : ""
     }
   }
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
     window.addEventListener('scroll', this.onScroll);
   }
   onScroll = (e) => {

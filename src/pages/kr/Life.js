@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class Life extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.addHtmlClass();
   }
   componentWillUnmount() {
