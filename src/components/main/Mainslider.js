@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import 'css/main.css';
 
 class Mainslider extends Component {
-  state = {
-    getData : []
+  constructor(props) {
+    super(props);
+    this.state = {
+      getData : []
+    }
   }
-  UNSAFE_componentWillMount() {
-    this.getSlideData();      
+  componentDidMount() {
+    this.getSlideData();   
   }
   getSlideData = () => {
     if (this.props.host === "localhost") {
@@ -19,24 +22,24 @@ class Mainslider extends Component {
             "wr_subject": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc1",
             "wr_text": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc1 \uc124\uba85\r\n\ucd94\uac00\uc124\uba85",
             "wr_aligin": "left",
-            "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/file\/mainslider\/1030043451_TKhfcNO4_ecb25311adbe8785904a24105dc79d9ecd2e7067.jpg",
-            "wr_link": "http:\/\/dbrandtest.com\/",
+            "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_TKhfcNO4_ecb25311adbe8785904a24105dc79d9ecd2e7067.jpg",
+            "wr_link": "http://dbrandtest.com/",
             "titleColor": "fff",
             "textColor": "fff"
           }, {
             "wr_subject": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc2 \ud0c0\uc774\ud2c0",
             "wr_text": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc2 \uc124\uba85",
             "wr_aligin": "right",
-            "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/file\/mainslider\/1030043451_GA9hkUIw_5ae7bd508679495acac3da099c6c82c3e3ed627c.jpg",
-            "wr_link": "http:\/\/dbrandtest.com",
+            "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_GA9hkUIw_5ae7bd508679495acac3da099c6c82c3e3ed627c.jpg",
+            "wr_link": "http://dbrandtest.com",
             "titleColor": "fff",
             "textColor": "fff"
           }, {
             "wr_subject": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc3 \ud0c0\uc774\ud2c0",
             "wr_text": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc3 \ud14d\uc2a4\ud2b8",
             "wr_aligin": "left",
-            "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/file\/mainslider\/1030043451_uIJsCLy4_5ad4e89bdd407c60f758fa2b7ac74074db4f41ef.jpg",
-            "wr_link": "http:\/\/dbrandtest.com",
+            "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_uIJsCLy4_5ad4e89bdd407c60f758fa2b7ac74074db4f41ef.jpg",
+            "wr_link": "http://dbrandtest.com",
             "titleColor": "fff",
             "textColor": "fff"
           }
@@ -59,6 +62,9 @@ class Mainslider extends Component {
       });
     }
   }
+  componentWillUnmount () {
+    clearTimeout(this.getSlideData);
+  }
   render() {
     const slideSettings = {
       dots: true,
@@ -68,7 +74,6 @@ class Mainslider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       afterChange: function(currentSlide) {
-        console.log(currentSlide + 1);
         document.getElementById("sliderCounter").innerHTML = currentSlide + 1;
       }
     }

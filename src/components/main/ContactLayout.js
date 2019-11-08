@@ -44,37 +44,35 @@ class ContactLayout extends Component {
     }
     return zero + n;
   }
-  timeInit() {
-    this.setState({
-      points : [
-        {
-          pointTime : this.timeCount(+9),
-          pointName : "Songdo",
-          pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
-          pointTel : "02.1544.0218",
-          let : "37.380596",
-          lang : "126.6567071"
-        },
-        {
-          pointTime : this.timeCount(+2),
-          pointName : "Milano",
-          pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
-          pointTel : "02.1544.0218",
-          let : "37.380596",
-          lang : "126.6567071"
-        }
-      ]
-    })
+  timeInit = () => {
+    this.interval = setInterval(()=>{
+      this.setState({
+        points : [
+          {
+            pointTime : this.timeCount(+9),
+            pointName : "Songdo",
+            pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
+            pointTel : "02.1544.0218",
+            let : "37.380596",
+            lang : "126.6567071"
+          },
+          {
+            pointTime : this.timeCount(+2),
+            pointName : "Milano",
+            pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
+            pointTel : "02.1544.0218",
+            let : "37.380596",
+            lang : "126.6567071"
+          }
+        ]
+      })
+    }, 1000)
   }
   componentDidMount() {
-    setInterval(() => {
-      this.timeInit();
-    }, 1000);
+    this.timeInit();
   }
   componentWillUnmount() {
-    clearInterval(() => {
-      this.timeInit();
-    })
+    clearInterval(this.interval);
   }
   render() {
     return (

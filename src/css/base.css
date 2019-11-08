@@ -78,8 +78,6 @@ a:hover {text-decoration:none}
   left: 0;
   width: 100%;
   z-index: 10000;
-  height: 60px;
-  line-height: 60px;
   transition: 1s ease-in-out;
 }
 #mainNavs.navScrollOn {
@@ -101,10 +99,7 @@ a:hover {text-decoration:none}
 #mainLogo {
   width: 140px;
   float:left;
-}
-#mainLogo a {
-  position: relative;
-  top: -4px;
+  line-height: 55px;
 }
 #mainLogo img {
   width: 100%;
@@ -114,6 +109,17 @@ a:hover {text-decoration:none}
 }
 #mainMenu > div {
   float:left;
+}
+#searchBtn button {
+  background: transparent;
+  border: 0;
+  color:#fff;
+  cursor: pointer;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 1.5rem;
+  transition: 0.5s;
+  line-height: 60px;
 }
 #hamburgersBtn {
   background: none;
@@ -229,4 +235,24 @@ a:hover {text-decoration:none}
   bottom:0;
   right: 0;
   font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pageContents{
+  min-height: 200vh;
 }

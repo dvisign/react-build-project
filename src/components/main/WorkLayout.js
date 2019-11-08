@@ -4,44 +4,44 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import {Link} from 'react-router-dom';
 
 class WorkLayout extends Component {
-  state = {
-    getDataGroup : [],
-    leng:1
+  constructor(props) {
+    super(props);
+    this.state = {
+      getDataGroup : [],
+      leng:1
+    }
   }
-  UNSAFE_componentWillMount() {
-    this.getSlideData();      
+  componentDidMount() {
+    this.getData();      
   }
-  componentWillUnmount() {
-    this.getSlideData();
-  }
-  getSlideData = () => {
+  getData = () => {
     if (this.props.host === "localhost") {
       this.setState({
         getDataGroup : [
           [
             {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b81",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091147_8462.jpg",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091147_8462.jpg",
               "bo_table": "work",
               "wr_id": "4"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b82",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091176_7629.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091176_7629.png",
               "bo_table": "work",
               "wr_id": "5"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b83",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091203_127.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091203_127.png",
               "bo_table": "work",
               "wr_id": "6"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b84",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091228_4278.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091228_4278.png",
               "bo_table": "work",
               "wr_id": "7"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b85",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091244_1595.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091244_1595.png",
               "bo_table": "work",
               "wr_id": "8"
             }
@@ -49,27 +49,27 @@ class WorkLayout extends Component {
           [
             {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b86",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091147_8462.jpg",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091147_8462.jpg",
               "bo_table": "work",
               "wr_id": "9"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b87",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091176_7629.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091176_7629.png",
               "bo_table": "work",
               "wr_id": "10"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b88",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091203_127.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091203_127.png",
               "bo_table": "work",
               "wr_id": "11"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b89",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091228_4278.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091228_4278.png",
               "bo_table": "work",
               "wr_id": "12"
             }, {
               "wr_subject": "\ud504\ub85c\uc81d\ud2b810",
-              "wr_img": "http:\/\/dbrandtest.com\/gnu\/data\/editor\/1911\/a9942743e8884f23966a461701481938_1573091244_1595.png",
+              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091244_1595.png",
               "bo_table": "work",
               "wr_id": "13"
             }
@@ -85,7 +85,6 @@ class WorkLayout extends Component {
         }
       })
       .then(response => {
-        console.log(response.data)
         this.setState({
           getDataGroup: response.data
         })
@@ -94,6 +93,9 @@ class WorkLayout extends Component {
         console.log(response.data)
       });
     }
+  }
+  componentWillUnmount () {
+    clearTimeout(this.getData);
   }
   render() {
     const dataResult = this.state.getDataGroup;

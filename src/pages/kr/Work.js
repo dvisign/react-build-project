@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
 class Work extends Component {
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.addHtmlClass();
   }
-  componentWillUnmount() {
+  componentDidUnMount() {
     this.removeHtmlClass();
   }
   addHtmlClass = () => {

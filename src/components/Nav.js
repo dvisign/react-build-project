@@ -1,47 +1,62 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import Logo from 'img/dbrand_logo.png';
+import LogoOn from 'img/dbrand_logo_on.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      addClass : false
+      logoImg : Logo,
+      navActive : ""
     }
   }
-  navEvent = () => {
+  componentDidMount(){
+    window.addEventListener('scroll', this.onScroll.bind(this));
+  }
+  onScroll = (e) => {
+    const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);
+    if (nowPos > 0) {
+      this.setState({
+        logoImg : LogoOn,
+        navActive : "navScrollOn"
+      })
+    } else {
+      this.setState({
+        logoImg : Logo,
+        navActive : ""
+      })
+    }
+  };
+  navOnClickEvent = () => {
     let btnEl = document.getElementById("hamburgersBtn");
     let slideNav = document.getElementById("fixNavs");
-    if (this.state.addClass === false) {
-      btnEl.classList.add("mNavActive");
-      slideNav.classList.add("mNavActive")
-      this.setState({
-        addClass : true
-      });
-    } else {
+    if (btnEl.classList.contains("mNavActive")) {
       btnEl.classList.remove("mNavActive");
       slideNav.classList.remove("mNavActive");
-      this.setState({
-        addClass : false
-      });
+    } else {
+      btnEl.classList.add("mNavActive");
+      slideNav.classList.add("mNavActive");
     }
   }
   render() {
     return (
-      <div id="mainNavs" className={this.props.navActive}>
+      <div id="mainNavs" className={this.state.navActive}>
         <div className="customContainer">
           <div className="clear">
             <div id="mainLogo">
               <Link to="/">
-                <img src={this.props.logo} alt="DBRAND" />
+                <img src={this.state.logoImg} alt="DBRAND" />
               </Link>
             </div>
             <div id="mainMenu">
               <div id="langSelect"></div>
               <div id="searchBtn">
-                <button><i className="fas fa-search"></i></button>
+                <button><FontAwesomeIcon icon={faSearch} /></button>
               </div>
               <div id="hamburgers">
-                <button id="hamburgersBtn" onClick={this.navEvent}>
+                <button id="hamburgersBtn" onClick={this.navOnClickEvent}>
                   <span id="line1"></span>
                   <span id="line2"></span>
                   <span id="line3"></span>

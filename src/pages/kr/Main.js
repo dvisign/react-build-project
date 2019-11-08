@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import Mainslider from '../../components/main/Mainslider';
-import WorkLayout from '../../components/main/WorkLayout';
-import ContactLayout from '../../components/main/ContactLayout'
+import Mainslider from 'components/main/Mainslider';
+import WorkLayout from 'components/main/WorkLayout';
+import ContactLayout from 'components/main/ContactLayout'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'css/main.css';
 
 class Main extends Component {
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.addHtmlClass();
   }
-  componentWillUnmount() {
+  componentDidUnMount() {
     this.removeHtmlClass();
   }
-  addHtmlClass = () => {
+  addHtmlClass = (e) => {
     document.getElementsByTagName('html')[0].classList.add("main")
-    console.log(this.props.match.url);
   }
   removeHtmlClass = () => {
     document.getElementsByTagName('html')[0].classList.remove("main")
@@ -35,9 +34,7 @@ class Main extends Component {
           titles="Work"
           host={hostName}
         />
-        <ContactLayout 
-          
-        />
+        <ContactLayout />
       </div>
     )
   }
