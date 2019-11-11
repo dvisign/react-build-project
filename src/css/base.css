@@ -96,6 +96,29 @@ a:hover {text-decoration:none}
 #fixNavs.mNavActive {
   left: 0;
 }
+.m_menu {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.m_menu>li {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 4%;
+  position: relative;
+}
+.m_menu>li>a {
+  font-size: calc(40px + 1vw);
+  color: #fff;
+  transition: 0.5s;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.m_menu>li:hover> a {
+  color: #ff2f92;
+}
 #mainLogo {
   width: 140px;
   float:left;
@@ -177,6 +200,9 @@ a:hover {text-decoration:none}
 .navScrollOn #line2, 
 .navScrollOn #line3 {
   background: #232f61;
+}
+.navScrollOn #searchBtn button {
+  color:#232f61;
 }
 /* 풋터 */
 #footers {

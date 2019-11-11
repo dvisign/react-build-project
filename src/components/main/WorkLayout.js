@@ -20,58 +20,34 @@ class WorkLayout extends Component {
         getDataGroup : [
           [
             {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b81",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091147_8462.jpg",
-              "bo_table": "work",
-              "wr_id": "4"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b82",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091176_7629.png",
-              "bo_table": "work",
-              "wr_id": "5"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b83",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091203_127.png",
-              "bo_table": "work",
-              "wr_id": "6"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b84",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091228_4278.png",
-              "bo_table": "work",
-              "wr_id": "7"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b85",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091244_1595.png",
-              "bo_table": "work",
-              "wr_id": "8"
-            }
-          ],
-          [
+              "wr_subject":"\ud504\ub85c\uc81d\ud2b81",
+              "wr_img":"http://dbrandtest.com/gnu/data/editor/1911/thumb-a9942743e8884f23966a461701481938_1573091147_8462_790x455.jpg",
+              "bo_table":"work",
+              "wr_id":"4"
+            },
             {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b86",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091147_8462.jpg",
-              "bo_table": "work",
-              "wr_id": "9"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b87",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091176_7629.png",
-              "bo_table": "work",
-              "wr_id": "10"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b88",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091203_127.png",
-              "bo_table": "work",
-              "wr_id": "11"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b89",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091228_4278.png",
-              "bo_table": "work",
-              "wr_id": "12"
-            }, {
-              "wr_subject": "\ud504\ub85c\uc81d\ud2b810",
-              "wr_img": "http://dbrandtest.com/gnu/data/editor/1911/a9942743e8884f23966a461701481938_1573091244_1595.png",
-              "bo_table": "work",
-              "wr_id": "13"
+              "wr_subject":"\ud504\ub85c\uc81d\ud2b82",
+              "wr_img":"http://dbrandtest.com/gnu/data/editor/1911/thumb-a9942743e8884f23966a461701481938_1573091176_7629_790x455.png",
+              "bo_table":"work",
+              "wr_id":"5"
+            },
+            {
+              "wr_subject":"\ud504\ub85c\uc81d\ud2b83",
+              "wr_img":"http://dbrandtest.com/gnu/data/editor/1911/thumb-a9942743e8884f23966a461701481938_1573091203_127_790x455.png",
+              "bo_table":"work",
+              "wr_id":"6"
+            },
+            {
+              "wr_subject":"\ud504\ub85c\uc81d\ud2b84",
+              "wr_img":"http://dbrandtest.com/gnu/data/editor/1911/thumb-a9942743e8884f23966a461701481938_1573091228_4278_790x455.png",
+              "bo_table":"work",
+              "wr_id":"7"
+            },
+            {
+              "wr_subject":"\ud504\ub85c\uc81d\ud2b85",
+              "wr_img":"http://dbrandtest.com/gnu/data/editor/1911/thumb-a9942743e8884f23966a461701481938_1573091244_1595_790x455.png",
+              "bo_table":"work",
+              "wr_id":"8"
             }
           ]
         ]

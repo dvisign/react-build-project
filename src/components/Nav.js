@@ -32,12 +32,15 @@ class Nav extends Component {
   navOnClickEvent = () => {
     let btnEl = document.getElementById("hamburgersBtn");
     let slideNav = document.getElementById("fixNavs");
+    let htmlDom = document.getElementsByTagName("html")[0];
     if (btnEl.classList.contains("mNavActive")) {
       btnEl.classList.remove("mNavActive");
       slideNav.classList.remove("mNavActive");
+      htmlDom.style.overflow = "auto";
     } else {
       btnEl.classList.add("mNavActive");
       slideNav.classList.add("mNavActive");
+      htmlDom.style.overflow = "hidden";
     }
   }
   render() {
@@ -66,7 +69,7 @@ class Nav extends Component {
           </div>
         </div>
         <div id="fixNavs">
-          <ul>
+          <ul className="m_menu">
             <li>
               <Link to="/About">We Are</Link>
             </li>

@@ -8,7 +8,17 @@ class Mainslider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      getData : []
+      getData : [
+        {
+          "wr_subject": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc1",
+          "wr_text": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc1 \uc124\uba85\r\n\ucd94\uac00\uc124\uba85",
+          "wr_aligin": "left",
+          "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_TKhfcNO4_ecb25311adbe8785904a24105dc79d9ecd2e7067.jpg",
+          "wr_link": "http://dbrandtest.com/",
+          "titleColor": "fff",
+          "textColor": "fff"
+        }
+      ]
     }
   }
   componentDidMount() {
@@ -25,7 +35,8 @@ class Mainslider extends Component {
             "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_TKhfcNO4_ecb25311adbe8785904a24105dc79d9ecd2e7067.jpg",
             "wr_link": "http://dbrandtest.com/",
             "titleColor": "fff",
-            "textColor": "fff"
+            "textColor": "fff",
+            "wr_file" : "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_TKhfcNO4_ecb25311adbe8785904a24105dc79d9ecd2e7067.jpg"
           }, {
             "wr_subject": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc2 \ud0c0\uc774\ud2c0",
             "wr_text": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc2 \uc124\uba85",
@@ -33,7 +44,8 @@ class Mainslider extends Component {
             "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_GA9hkUIw_5ae7bd508679495acac3da099c6c82c3e3ed627c.jpg",
             "wr_link": "http://dbrandtest.com",
             "titleColor": "fff",
-            "textColor": "fff"
+            "textColor": "fff",
+            "wr_file" : "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_GA9hkUIw_5ae7bd508679495acac3da099c6c82c3e3ed627c.jpg"
           }, {
             "wr_subject": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc3 \ud0c0\uc774\ud2c0",
             "wr_text": "\uba54\uc778\uc2ac\ub77c\uc774\ub4dc3 \ud14d\uc2a4\ud2b8",
@@ -41,7 +53,17 @@ class Mainslider extends Component {
             "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_uIJsCLy4_5ad4e89bdd407c60f758fa2b7ac74074db4f41ef.jpg",
             "wr_link": "http://dbrandtest.com",
             "titleColor": "fff",
-            "textColor": "fff"
+            "textColor": "fff",
+            "wr_file":"http://dbrandtest.com/gnu/data/file/mainslider/1030043451_uIJsCLy4_5ad4e89bdd407c60f758fa2b7ac74074db4f41ef.jpg"
+          }, {
+            "wr_subject": "슬라이드타이틀4",
+            "wr_text": "<p>슬라이드텍스트4<br></p>",
+            "wr_aligin": "right",
+            "wr_img": "",
+            "wr_link": "http://dbrandtest.com/",
+            "titleColor": "fff",
+            "textColor": "fff",
+            "wr_file": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_4Zed5U8t_93298bd71a3860e6fc89ac4d49ee0358f97f6243.mp4"
           }
         ]
       })
@@ -53,6 +75,7 @@ class Mainslider extends Component {
         }
       })
       .then(response => {
+        console.log(response.data);
         this.setState({
           getData: response.data
         })
@@ -77,17 +100,22 @@ class Mainslider extends Component {
         document.getElementById("sliderCounter").innerHTML = currentSlide + 1;
       }
     }
+    console.log(this.state.getData)
     return (
       <div className="sliderComponents">
         <Slider className="sliderWrapper" {...slideSettings}>
           {this.state.getData.map((sliders, i) => (
             <div className="sliderItems" key={i}>
-              <div className="sliderImgs" style={{backgroundImage : "url("+sliders.wr_img+")"}}>
+              <div className="sliderImgs">
+                <img src={sliders.wr_file} alt='' />
+                {
+                  sliders.wr_img.indexOf(".jpg") ? (<div>이미지</div>) : (<div>동영상</div>)
+                }
                 <div className="customContainer">
                   <div className={"slideContents slideAlign"+sliders.wr_aligin}>
                     <h1 className="sliderTitle" style={{color:"#"+sliders.titleColor}}>{sliders.wr_subject}</h1>
                     <p className="sliderText" style={{color:"#"+sliders.textColor}}>{sliders.wr_text}</p>
-                    <Link className="sliderLink" to={sliders.wr_link}>+</Link>
+                    <Link className="sliderLink" to={sliders.wr_link}>더보기</Link>
                   </div>
                 </div>
               </div>
