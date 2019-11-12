@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 
 class About extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class About extends Component {
   render() {
     return (
       <div>
-        we are
+        about
       </div>
     )
   }

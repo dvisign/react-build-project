@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import WorkContain from 'components/work/WorkContain';
 
 class Work extends Component {
   constructor(props) {
@@ -15,9 +16,9 @@ class Work extends Component {
   }
   render() {
     return (
-      <div>
-        work
-      </div>
+      <WorkContain 
+        workStatus={(stat) => this.workStatus(stat)}
+      />
     )
   }
 }

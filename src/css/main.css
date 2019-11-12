@@ -57,8 +57,6 @@
 .sliderText {
   margin:20px auto;
   font-size: 1.3rem;
-  width: 70%;
-  word-break: keep-all;
 }
 .slideAlignleft .sliderText {
   margin-left: 0;

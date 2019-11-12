@@ -1,40 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from 'img/dbrand_logo.png';
 import LogoOn from 'img/dbrand_logo_on.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import jQuery from 'jquery';
 class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      logoImg : Logo,
-      navActive : "",
-      pages : this.props.pages
-    }
-  }
   componentDidMount(){
     window.addEventListener('scroll', this.onScroll.bind(this));
-    if (this.state.pages !== "main") {
-      this.setState({
-        logoImg : LogoOn,
-        navActive : "navScrollOn"
-      })
-    }
+    document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",Logo);
+    document.getElementById("mainNavs").classList.remove("navScrollOn");
   }
   onScroll = (e) => {
     const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);
-    if (this.state.pages === "main") {
+    if (this.props.pages === "main") {
       if (nowPos > 0) {
-        this.setState({
-          logoImg : LogoOn,
-          navActive : "navScrollOn"
-        })
+        document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",LogoOn)
+        document.getElementById("mainNavs").classList.add("navScrollOn")
       } else {
-        this.setState({
-          logoImg : Logo,
-          navActive : ""
-        })
+        document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",Logo)
+        document.getElementById("mainNavs").classList.remove("navScrollOn")
       }
     }
   };
@@ -52,15 +37,35 @@ class Nav extends Component {
       htmlDom.style.overflow = "hidden";
     }
   };
+  componentDidUpdate() {
+    let btnEl = document.getElementById("hamburgersBtn");
+    let slideNav = document.getElementById("fixNavs");
+    let htmlDom = document.getElementsByTagName("html")[0];
+    btnEl.classList.remove("mNavActive");
+    slideNav.classList.remove("mNavActive");
+    htmlDom.style.overflow = "auto";
+    jQuery("html").stop().animate({
+      "scrollTop":"0"
+    }, 500)
+    if (this.props.pages !== "main") {
+      document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",LogoOn);
+      document.getElementById("mainNavs").classList.add("navScrollOn");
+    } else {
+      document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",Logo);
+      document.getElementById("mainNavs").classList.remove("navScrollOn");
+    }
+  }
   render() {
-    console.log(window.location)
+    const activeStyle = {
+      color: '#ff2f92'
+    };
     return (
-      <div id="mainNavs" className={this.state.navActive}>
+      <div id="mainNavs">
         <div className="customContainer">
           <div className="clear">
             <div id="mainLogo">
               <Link to="/">
-                <img src={this.state.logoImg} alt="DBRAND" />
+                <img src="" alt="DBRAND" />
               </Link>
             </div>
             <div id="mainMenu">
@@ -81,16 +86,16 @@ class Nav extends Component {
         <div id="fixNavs">
           <ul className="m_menu">
             <li>
-              <Link to="/About">We Are</Link>
+              <NavLink activeStyle={activeStyle} to="/About">We Are</NavLink>
             </li>
             <li>
-              <Link to="/Work">Work</Link>
+              <NavLink activeStyle={activeStyle} to="/Work">Work</NavLink>
             </li>
             <li>
-              <Link to="/Life">Life</Link>
+              <NavLink activeStyle={activeStyle} to="/Life">Life</NavLink>
             </li>
             <li>
-              <Link to="/Contact">Contact</Link>
+              <NavLink activeStyle={activeStyle} to="/Contact">Contact</NavLink>
             </li>
           </ul>
         </div>
