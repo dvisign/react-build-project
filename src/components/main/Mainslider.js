@@ -16,7 +16,8 @@ class Mainslider extends Component {
           "wr_img": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_TKhfcNO4_ecb25311adbe8785904a24105dc79d9ecd2e7067.jpg",
           "wr_link": "http://dbrandtest.com/",
           "titleColor": "fff",
-          "textColor": "fff"
+          "textColor": "fff",
+          "wr_file": "http://dbrandtest.com/gnu/data/file/mainslider/1030043451_4Zed5U8t_93298bd71a3860e6fc89ac4d49ee0358f97f6243.mp4"
         }
       ]
     }
@@ -89,6 +90,7 @@ class Mainslider extends Component {
     clearTimeout(this.getSlideData);
   }
   render() {
+    const count = document.getElementById("sliderCounter");
     const slideSettings = {
       dots: true,
       arrows: false,
@@ -97,24 +99,33 @@ class Mainslider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       afterChange: function(currentSlide) {
-        document.getElementById("sliderCounter").innerHTML = currentSlide + 1;
+        count.innerHTML = currentSlide + 1;
+        document.getElementsByClassName("slick-active")[0].getElementsByClassName("slideVid")[0] ? (
+          document.getElementsByClassName("slick-active")[0].getElementsByClassName("slideVid")[0].play()
+        ) : 
+        (
+          document.getElementsByClassName("slideVid")[0].pause()
+        )
       }
     }
-    console.log(this.state.getData)
     return (
       <div className="sliderComponents">
         <Slider className="sliderWrapper" {...slideSettings}>
           {this.state.getData.map((sliders, i) => (
             <div className="sliderItems" key={i}>
               <div className="sliderImgs">
-                <img src={sliders.wr_file} alt='' />
                 {
-                  sliders.wr_img.indexOf(".jpg") ? (<div>이미지</div>) : (<div>동영상</div>)
+                  sliders.wr_file.indexOf(".mp4") > -1 ? 
+                  <video playsInline loop="loop" muted="muted" className="slideVid">
+                    <source src={sliders.wr_file}></source>
+                  </video>
+                  : 
+                  <span className="slideThumbs" style={{backgroundImage : "url("+sliders.wr_img+")"}}></span> 
                 }
                 <div className="customContainer">
                   <div className={"slideContents slideAlign"+sliders.wr_aligin}>
                     <h1 className="sliderTitle" style={{color:"#"+sliders.titleColor}}>{sliders.wr_subject}</h1>
-                    <p className="sliderText" style={{color:"#"+sliders.textColor}}>{sliders.wr_text}</p>
+                    <p className="sliderText" dangerouslySetInnerHTML={{__html: sliders.wr_text}} style={{color:"#"+sliders.textColor}}></p>
                     <Link className="sliderLink" to={sliders.wr_link}>더보기</Link>
                   </div>
                 </div>

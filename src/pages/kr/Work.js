@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 
 class Work extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pages : "work"
+    }
+  }
   componentDidMount() {
-    this.addHtmlClass();
+    this.callbackFunc();
   }
-  componentDidUnMount() {
-    this.removeHtmlClass();
-  }
-  addHtmlClass = () => {
-    document.getElementsByTagName('html')[0].classList.add("work")
-  }
-  removeHtmlClass = () => {
-    document.getElementsByTagName('html')[0].classList.remove("work")
+  callbackFunc = () => {
+    this.props.addSomething(this.state.pages)
   }
   render() {
     return (

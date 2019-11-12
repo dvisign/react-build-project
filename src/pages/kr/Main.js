@@ -7,17 +7,17 @@ import "slick-carousel/slick/slick-theme.css";
 import 'css/main.css';
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pages : "main"
+    }
+  }
   componentDidMount() {
-    this.addHtmlClass();
+    this.callbackFunc();
   }
-  componentDidUnMount() {
-    this.removeHtmlClass();
-  }
-  addHtmlClass = (e) => {
-    document.getElementsByTagName('html')[0].classList.add("main")
-  }
-  removeHtmlClass = () => {
-    document.getElementsByTagName('html')[0].classList.remove("main")
+  callbackFunc = () => {
+    this.props.addSomething(this.state.pages)
   }
   render() {
     const hostName = window.location.hostname;

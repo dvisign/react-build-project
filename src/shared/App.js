@@ -7,17 +7,37 @@ import "animate.css/animate.min.css";
 
 
 class App extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      pages : "main"
+    }
+  }
+  addSomething(stateValueFromChild) {
+    if (this.state.pages !== stateValueFromChild) {
+      this.setState({
+        pages: stateValueFromChild
+      });
+    }
+    let btnEl = document.getElementById("hamburgersBtn");
+    let slideNav = document.getElementById("fixNavs");
+    let htmlDom = document.getElementsByTagName("html")[0];
+    btnEl.classList.remove("mNavActive");
+    slideNav.classList.remove("mNavActive");
+    htmlDom.style.overflow = "auto";
+  }
   render() {
     return(
       <div className="wrapper">
-        <Nav />
-        <div className="pageContents">
-          <Route exact path="/" component={Main} />
-          <Route path="/about" component={About} />
-          <Route path="/work" component={Work} />
-          <Route path="/life" component={Life} />
-          <Route path="/contact" component={Contact} />
+        <Nav 
+          pages={this.state.pages}
+        />
+        <div className="pageContents" >
+          <Route exact path="/" render={props => <Main addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
+          <Route path="/about" render={props => <About addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
+          <Route path="/work" render={props => <Work addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
+          <Route path="/life" render={props => <Life addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
+          <Route path="/contact" render={props => <Contact addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
         </div>
         <Footer 
         
@@ -26,5 +46,4 @@ class App extends Component {
     )
   }
 }
-
 export default App;

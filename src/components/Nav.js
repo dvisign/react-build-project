@@ -9,24 +9,33 @@ class Nav extends Component {
     super(props);
     this.state = {
       logoImg : Logo,
-      navActive : ""
+      navActive : "",
+      pages : this.props.pages
     }
   }
   componentDidMount(){
     window.addEventListener('scroll', this.onScroll.bind(this));
-  }
-  onScroll = (e) => {
-    const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);
-    if (nowPos > 0) {
+    if (this.state.pages !== "main") {
       this.setState({
         logoImg : LogoOn,
         navActive : "navScrollOn"
       })
-    } else {
-      this.setState({
-        logoImg : Logo,
-        navActive : ""
-      })
+    }
+  }
+  onScroll = (e) => {
+    const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);
+    if (this.state.pages === "main") {
+      if (nowPos > 0) {
+        this.setState({
+          logoImg : LogoOn,
+          navActive : "navScrollOn"
+        })
+      } else {
+        this.setState({
+          logoImg : Logo,
+          navActive : ""
+        })
+      }
     }
   };
   navOnClickEvent = () => {
@@ -42,8 +51,9 @@ class Nav extends Component {
       slideNav.classList.add("mNavActive");
       htmlDom.style.overflow = "hidden";
     }
-  }
+  };
   render() {
+    console.log(window.location)
     return (
       <div id="mainNavs" className={this.state.navActive}>
         <div className="customContainer">

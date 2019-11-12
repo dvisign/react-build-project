@@ -8,11 +8,29 @@
   max-height:969px;
   position: relative;
 }
-.sliderImgs img {
+.sliderImgs .slideThumbs {
+  height: 100%;
   width: 100%;
+  display: block;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
+}
+.sliderImgs .slideVid {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-size: cover;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-attachment: fixed;
 }
 .sliderImgs > .customContainer {
   position: relative;
