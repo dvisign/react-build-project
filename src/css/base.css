@@ -211,6 +211,10 @@ a:hover {text-decoration:none}
   padding-bottom: 70px;
   color: #2a3766;
   text-align: left;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 #footerNav, #footerSns {
   display: inline-block;

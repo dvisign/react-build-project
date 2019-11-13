@@ -1,6 +1,32 @@
 /* 메인슬라이드 */
 .sliderComponents {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  height: 100vw;
+  height: 115.625vw;
+  max-height: 100%;
+  background-color: grey;
+}
+.paraSections {
+  width: 100%;
   position: relative;
+  background: 0 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  max-height: 100%;
+  height: 100vh;
+}
+.indexContents {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 .sliderImgs {
   width:100%;

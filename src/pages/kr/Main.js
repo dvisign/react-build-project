@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Mainslider from 'components/main/Mainslider';
 import WorkLayout from 'components/main/WorkLayout';
 import ContactLayout from 'components/main/ContactLayout'
+import ScrollAnimation from 'react-animate-on-scroll';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'css/main.css';
@@ -22,12 +23,14 @@ class Main extends Component {
   render() {
     const hostName = window.location.hostname;
     return (
-      <div>
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
         <Mainslider 
           bo_table="mainslider"
           status="main"
           host={hostName} 
         />
+        <div className="paraSections"></div>
+        <div className="indexContents">
         <WorkLayout 
           bo_table="work"
           status="list"
@@ -35,7 +38,8 @@ class Main extends Component {
           host={hostName}
         />
         <ContactLayout />
-      </div>
+        </div>
+      </ScrollAnimation>
     )
   }
 }
