@@ -91,10 +91,18 @@
   margin-right: 0;
 }
 .sliderLink {
-
+  padding:5px 10px;
+  border-style: solid;
+  border-width:1px;
+  height: 35px;
+  line-height: 35px;
+  transition: 0.5s;
 }
 .sliderComponents .slick-dots {
   bottom: 30px;
+}
+.sliderComponents .slick-dots li {
+  margin: 0 auto;
 }
 .sliderComponents .slick-dots li button:before {
   font-size: 12px;

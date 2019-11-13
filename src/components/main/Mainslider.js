@@ -95,6 +95,7 @@ class Mainslider extends Component {
       dots: true,
       arrows: false,
       infinite: true,
+      autoplay:true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -126,7 +127,9 @@ class Mainslider extends Component {
                   <div className={"slideContents slideAlign"+sliders.wr_aligin}>
                     <h1 className="sliderTitle" style={{color:"#"+sliders.titleColor}}>{sliders.wr_subject}</h1>
                     <p className="sliderText" dangerouslySetInnerHTML={{__html: sliders.wr_text}} style={{color:"#"+sliders.textColor}}></p>
-                    <Link className="sliderLink" to={sliders.wr_link}>더보기</Link>
+                    <div className="sliderLinkWrapper">
+                      <Link className="sliderLink" style={{color:"#"+sliders.textColor, borderColor:sliders.textColor}} to={sliders.wr_link}>더보기</Link>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -13,15 +13,21 @@ class Main extends Component {
     this.state = {
       pages : "main"
     }
+    console.log("constructor");
   }
   componentDidMount() {
     this.callbackFunc();
+    console.log("did mount")
+  }
+  componentWillUnmount() {
+    console.log("did unmount")
   }
   callbackFunc = () => {
     this.props.addSomething(this.state.pages)
   }
   render() {
     const hostName = window.location.hostname;
+    console.log("render");
     return (
       <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
         <Mainslider 

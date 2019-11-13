@@ -75,7 +75,6 @@ class ContactLayout extends Component {
     clearInterval(this.interval);
   }
   render() {
-    console.log("렌더링")
     return (
       <div id="indexContact">
         <div className="customContainer">
