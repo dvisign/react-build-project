@@ -1,0 +1,109 @@
+/* 클래스 */
+.articles {
+  padding-top: 350px;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+  background: #fff;
+}
+.sectionTitles {
+  font-size: 120px;
+  margin-bottom: 60px;
+  margin-left: -8px;
+}
+.blueTxt {
+  color: #18255a;
+}
+.pointTxt {
+  color: #000;
+  font-weight: 700;
+}
+.sectionText {
+  color: #202020;
+  font-size: 40px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.sectionBtns {
+  margin-top: 60px;
+  display: inline-block;
+}
+.sectionBtns > a {
+  position: relative;
+  font-size: 25px;
+  line-height: 32px;
+  color: #000;
+  font-weight: 600;
+  display: block;
+}
+.sectionBtns span {
+  z-index: 1;
+  position: relative;
+}
+.sectionBtns .btnArr {
+  margin-left: 15px;
+}
+.sectionBtns img {
+  width: 10px;
+}
+.sectionBtns > a:hover {
+  color:#000;
+}
+.sectionBtns > a:hover::after {
+  width: 100%;
+}
+.sectionBtns > a::after {
+  display: block;
+  content:"";
+  background:#ee1997;
+  width: 0;
+  height: 7px;
+  position: absolute;
+  bottom: 5px;
+  overflow:hidden;
+  transition: 0.5s;
+}
+.fixedLayouts {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  height: 100vh;
+  max-height: 100%;
+  background-color: grey;
+}
+.fixSlideImgs {
+  height: 100%;
+}
+.fixSlideItems {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+/* 배너 */
+#aboutBanner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+  background: #fff;
+}
+#aboutBanner video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-attachment: fixed;
+}
+/* 인트로 */
+#intro .sectionTitles {
+  font-size: 180px;
+  margin-left: -12px;
+}
+/* 미션 */
+#missions {
+  padding-bottom: 200px;
+}

@@ -12,13 +12,13 @@ class Work extends Component {
     this.callbackFunc();
   }
   callbackFunc = () => {
-    this.props.addSomething(this.state.pages)
+    this.props.addSomething(this.state)
   }
   render() {
     return (
-      <WorkContain 
-        workStatus={(stat) => this.workStatus(stat)}
-      />
+      <div style={{paddingTop:"100px"}}>
+        <WorkContain />
+      </div>
     )
   }
 }

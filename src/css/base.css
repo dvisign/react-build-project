@@ -1,21 +1,22 @@
 /* font cdn */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mukta:400,500,600,700,800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean');
 /* 리셋 css */
 html {overflow-y:scroll}
-body {margin:0;padding:0;font-size:1rem;font-family:'Noto Sans TC', sans-serif;;line-height: 1;}
+body {margin:0;padding:0;font-size:1rem;font-family:'Noto Sans KR', sans-serif;;line-height: 1;}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
-h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:'Noto Sans TC', sans-serif;}
+h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:'Noto Sans KR', sans-serif;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
 
 ul, dl,dt,dd {margin:0;padding:0;list-style:none}
 legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
 label, input, button, select, img {vertical-align:middle;font-size:1em}
-input, button {margin:0;padding:0;font-family:'Noto Sans TC', sans-serif;;font-size:1em}
+input, button {margin:0;padding:0;font-family:'Noto Sans KR', sans-serif;;font-size:1em}
 input[type="submit"]{cursor:pointer}
 button {cursor:pointer}
 
-textarea, select {font-family:'Noto Sans TC', sans-serif;;font-size:1em}
+textarea, select {font-family:'Noto Sans KR', sans-serif;;font-size:1em}
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
@@ -31,19 +32,19 @@ a:hover {text-decoration:none}
 
 /* 클래스 */
 .avenir_bold {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
+  font-family: 'Mukta', sans-serif;
+  font-weight: 800;
 }
 .avenir_heavy {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Mukta', sans-serif;
   font-weight: 700;
 }
 .avenir_medium {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Mukta', sans-serif;
   font-weight: 600;
 }
 .avenir_light {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Mukta', sans-serif;
   font-weight: 500;
 }
 .clear:after {
@@ -113,7 +114,7 @@ a:hover {text-decoration:none}
   color: #fff;
   transition: 0.5s;
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Mukta', sans-serif;
   font-weight: 700;
 }
 .m_menu>li:hover> a {
