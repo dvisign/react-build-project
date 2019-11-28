@@ -107,3 +107,161 @@
 #missions {
   padding-bottom: 200px;
 }
+/* way */
+#ways .sectionTabBtnList {
+  margin-top: 60px;
+}
+#ways .sectionTabBtnItems::after {
+  position: absolute;
+  display: block;
+  content:"";
+  width: 100%;
+  height: 5px;
+  background:#e7e9ee;
+  bottom: 0;
+}
+#ways .sectionTabBtnItems {
+  padding-bottom: 20px;
+  float:left;
+  font-size: 30px;
+  padding-right: 60px;
+  position: relative;
+}
+#ways .sectionTabBtnItems:last-child {
+  padding-right: 0;
+}
+#ways .sectionTabButton {
+  color:#e7e9ee;
+  position: relative;
+  transition: 0.5s;
+  background: transparent;
+  border: none;
+}
+#ways .sectionTabButton::after {
+  position: absolute;
+  width: 0;
+  height: 5px;
+  content:"";
+  display: block;
+  bottom:-20px;
+  background:#18255a;
+  z-index: 1;
+  transition: 0.5s;
+  overflow: hidden;
+  left: 0;
+}
+#ways .tabActives.sectionTabButton{
+  color:#18255a;
+}
+#ways .tabActives.sectionTabButton::after {
+  width: 100%;
+}
+#ways .tabText {
+  margin-top: 70px;
+  font-size: 26px;
+  line-height: 45px;
+}
+/* we-do */
+#we-do .sectionTabBtnList {
+  margin-top: 60px;
+}
+#we-do .sectionTabBtnItems {
+  float:left;
+  width: calc(100% / 3) !important;
+  position: relative;
+}
+#we-do .sectionTabButton {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 50px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+#we-do .sectionTabButton > div {
+  display: inline-block;
+}
+#we-do .sectionTabButton span {
+  display: block;
+}
+#we-do .sectionTabButton .sectionTabTitle {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 600;
+  color:#c2c7d5;
+  transition: 0.5s;
+}
+#we-do .sectionTabButton .sectionTabCate {
+  margin: 35px auto 15px auto;
+  font-size: 25px;
+  font-weight: 600;
+  color:#c2c7d5;
+  transition: 0.5s;
+}
+#we-do .sectionTabButton .sectionTabCateTxt {
+  font-size: 20px;
+  color:#c2c7d5;
+  transition: 0.5s;
+  word-break: keep-all;
+}
+#we-do .sectionTabBtnItems::after {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background:#c2c7d5;
+  content:"";
+  display:block;
+  bottom: 0;
+}
+#we-do .sectionTabButton::after {
+  position: absolute;
+  width: 0;
+  height: 5px;
+  background:#18255a;
+  content:"";
+  display:block;
+  bottom: 0;
+  z-index: 1;
+  transition: 0.5s;
+}
+#we-do .sectionTabArr {
+  margin: 60px auto;
+}
+#we-do .sectionTabButton.tabActives::after {
+  width: 100%;
+}
+#we-do .sectionTabButton.tabActives .sectionTabTitle {
+  color:#18255a;
+}
+#we-do .sectionTabButton.tabActives .sectionTabCate {
+  color:#000
+}
+#we-do .sectionTabButton.tabActives .sectionTabCateTxt {
+  color:#202020
+}
+#we-do .tabTextContLists > div {
+  float:left;
+  width: calc(100% / 5);
+}
+#we-do .tabTextConts {
+  margin-top: 50px;
+}
+#we-do .tabtextContsItems {
+  margin-bottom: 30px;
+}
+#we-do .tabtextContsItems > p {
+  font-size: 20px;
+  color:#18255a;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+#we-do .tabtextContsItems > span {
+  font-size: 16px;
+  opacity: 0.5;
+}
+/* pro */
+#pros {
+  padding-bottom: 200px;
+}

@@ -13,7 +13,7 @@ class Nav extends Component {
   }
   onScroll = (e) => {
     const nowPos = ('scroll', e.srcElement.scrollingElement.scrollTop);
-    if (this.props.pages === "main") {
+    if (this.props.pages.pages === "main") {
       if (nowPos > 0) {
         document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",LogoOn)
         document.getElementById("mainNavs").classList.add("navScrollOn")

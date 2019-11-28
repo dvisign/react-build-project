@@ -6,6 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import 'css/main.css';
+import jQuery from 'jquery';
 
 class Main extends Component {
   constructor(props) {
@@ -17,10 +18,10 @@ class Main extends Component {
   }
   componentDidMount() {
     this.callbackFunc();
-    console.log("did mount")
+    jQuery(".pageContents").stop().fadeIn(500);
   }
   componentWillUnmount() {
-    console.log("did unmount")
+    jQuery(".pageContents").stop().fadeOut(500);
   }
   callbackFunc = () => {
     this.props.addSomething(this.state.pages)
