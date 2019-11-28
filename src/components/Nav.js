@@ -4,7 +4,7 @@ import Logo from 'img/dbrand_logo.png';
 import LogoOn from 'img/dbrand_logo_on.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import jQuery from 'jquery';
+//import jQuery from 'jquery';
 class Nav extends Component {
   componentDidMount(){
     window.addEventListener('scroll', this.onScroll.bind(this));
@@ -44,9 +44,10 @@ class Nav extends Component {
     btnEl.classList.remove("mNavActive");
     slideNav.classList.remove("mNavActive");
     htmlDom.style.overflow = "auto";
-    jQuery("html").stop().animate({
-      "scrollTop":"0"
-    }, 500)
+    // jQuery("html").stop().animate({
+    //   "scrollTop":"0"
+    // }, 500)
+    window.scrollTo(0, 0)
     if (this.props.pages !== "main") {
       document.getElementById("mainLogo").getElementsByTagName("img")[0].setAttribute("src",LogoOn);
       document.getElementById("mainNavs").classList.add("navScrollOn");

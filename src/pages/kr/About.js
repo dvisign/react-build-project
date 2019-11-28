@@ -50,27 +50,35 @@ class About extends Component {
           </article>
           <article id="intro" className="articles">
             <div className="customContainer">
-              <div className="titleWrapper">
-                <h1 className="sectionTitles blueTxt avenir_bold">Hello</h1>
-              </div>
-              <div className="sectionText">
-                <p>우리는 이렇게 생각합니다.</p>
-                <p><span className="pointTxt">디자인</span>은 문제를 해결하는 <span className="pointTxt">솔루션</span>이며<br /><span className="pointTxt"> 브랜드</span>는 <span className="pointTxt">자기다움</span>을 만드는 일이라고.<br/>우리는 디자인과 브랜딩을 함께 고민합니다.</p>
-              </div>
+              <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                <div className="titleWrapper">
+                  <h1 className="sectionTitles blueTxt avenir_bold">Hello</h1>
+                </div>
+              </ScrollAnimation>
+              <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+                <div className="sectionText">
+                  <p>우리는 이렇게 생각합니다.</p>
+                  <p><span className="pointTxt">디자인</span>은 문제를 해결하는 <span className="pointTxt">솔루션</span>이며<br /><span className="pointTxt"> 브랜드</span>는 <span className="pointTxt">자기다움</span>을 만드는 일이라고.<br/>우리는 디자인과 브랜딩을 함께 고민합니다.</p>
+                </div>
+              </ScrollAnimation>
             </div>
           </article>
           <article id="missions" className="articles">
             <div className="customContainer">
-              <div className="titleWrapper">
-                <h1 className="sectionTitles blueTxt avenir_bold">DBRAND Mission</h1>
-              </div>
-              <div className="sectionText">
-                <p className="pointTxt">우리는 디자인을 통해 강력한 무기를 만듭니다.</p>
-                <p>시장을 상대해야 하는 고객들에게 기업 브랜딩을<br/> 통해 제품 및 서비스의 가치를 높일 수 있는<br/> 강력한 디자인 무기를 만듭니다.</p>
-              </div>
-              <div className="sectionBtns">
-                <Link to="/work"><span className="btnTxt">Go to Work</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
-              </div>
+              <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                <div className="titleWrapper">
+                  <h1 className="sectionTitles blueTxt avenir_bold">DBRAND Mission</h1>
+                </div>
+              </ScrollAnimation>
+              <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+                <div className="sectionText">
+                  <p className="pointTxt">우리는 디자인을 통해 강력한 무기를 만듭니다.</p>
+                  <p>시장을 상대해야 하는 고객들에게 기업 브랜딩을<br/> 통해 제품 및 서비스의 가치를 높일 수 있는<br/> 강력한 디자인 무기를 만듭니다.</p>
+                </div>
+                <div className="sectionBtns">
+                  <Link to="/work"><span className="btnTxt">Go to Work</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
+                </div>
+              </ScrollAnimation>
             </div>
           </article>
           <article className="sliderImgs">
@@ -87,15 +95,19 @@ class About extends Component {
           </article>
           <article id="pros" className="articles">
             <div className="customContainer">
-              <div className="titleWrapper">
-                <h1 className="sectionTitles blueTxt avenir_bold">DBRAND Pro</h1>
-              </div>
-              <div className="sectionText">
-                <p><span className="pointTxt">수평적인 커뮤니케이션</span>을 위해 직급 구분없이<br /> 디브랜더의 프로페셔널한 정신을 의미하는<br /> Professional의 ‘Pro’를 사용합니다.<br /> 효율적인 디자인 협업 환경을 만들고자<br /> <span className="pointTxt">Smart work</span>를 통해 자유롭게 의견을 공유하고<br /> 즉각적으로 피드백을 수용합니다.</p>
-              </div>
-              <div className="sectionBtns">
-                <Link to="/life"><span className="btnTxt">Go to Life</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
-              </div>
+              <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                <div className="titleWrapper">
+                  <h1 className="sectionTitles blueTxt avenir_bold">DBRAND Pro</h1>
+                </div>
+              </ScrollAnimation>
+              <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+                <div className="sectionText">
+                  <p><span className="pointTxt">수평적인 커뮤니케이션</span>을 위해 직급 구분없이<br /> 디브랜더의 프로페셔널한 정신을 의미하는<br /> Professional의 ‘Pro’를 사용합니다.<br /> 효율적인 디자인 협업 환경을 만들고자<br /> <span className="pointTxt">Smart work</span>를 통해 자유롭게 의견을 공유하고<br /> 즉각적으로 피드백을 수용합니다.</p>
+                </div>
+                <div className="sectionBtns">
+                  <Link to="/life"><span className="btnTxt">Go to Life</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
+                </div>
+              </ScrollAnimation>
             </div>
           </article>
           <article className="sliderImgs">
@@ -103,6 +115,21 @@ class About extends Component {
               <FixSlide2 />
             </div>
             <div className="viewLayouts"></div>
+          </article>
+          <article id="squads" className="articles">
+            <div className="customContainer">
+              <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                <div className="titleWrapper">
+                  <h1 className="sectionTitles blueTxt avenir_bold">Squad</h1>
+                </div>
+              </ScrollAnimation>
+              <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+                <div className="sectionText">
+                  <p>최상의 결과를 위한 우리의 스쿼드는<br /><span className="pointTxt">각 분야의 전문가</span>들로 구성되어 있습니다.</p>
+                </div>
+                <SquadList />
+              </ScrollAnimation>
+            </div>
           </article>
         </section>
       </ScrollAnimation>
@@ -213,27 +240,33 @@ class Way extends Component {
   render() {
     return(
       <div className="customContainer">
-        <div className="titleWrapper">
-          <h1 className="sectionTitles blueTxt avenir_bold">DBRAND Way</h1>
-        </div>
-        <div className="sectionText">
-          <p>우리는 <span className="pointTxt">이러한 방식</span>으로 일합니다.</p>
-        </div>
-        <div className="sectionTabSection">
-          <ul className="sectionTabBtnList clear">
-          {this.state.wayTitle.map((wayTitles, i)=>(
-            <li className="sectionTabBtnItems" key={i}>
-              <button
-                className={i === 0 ? "sectionTabButton wayTabBtn tabActives" : "sectionTabButton wayTabBtn"}
-                onClick={(e) => this.textHandle(i)}
-              ><span>{wayTitles.title}</span></button>
-            </li>
-          ))}
-          </ul>
-          <WayText 
-            WayText={this.state.propsText}
-          />
-        </div>
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <div className="titleWrapper">
+            <h1 className="sectionTitles blueTxt avenir_bold">DBRAND Way</h1>
+          </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+          <div className="sectionText">
+            <p>우리는 <span className="pointTxt">이러한 방식</span>으로 일합니다.</p>
+          </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+          <div className="sectionTabSection">
+            <ul className="sectionTabBtnList clear">
+            {this.state.wayTitle.map((wayTitles, i)=>(
+              <li className="sectionTabBtnItems" key={i}>
+                <button
+                  className={i === 0 ? "sectionTabButton wayTabBtn tabActives" : "sectionTabButton wayTabBtn"}
+                  onClick={(e) => this.textHandle(i)}
+                ><span>{wayTitles.title}</span></button>
+              </li>
+            ))}
+            </ul>
+            <WayText 
+              WayText={this.state.propsText}
+            />
+          </div>
+        </ScrollAnimation>
       </div>
     )
   }
@@ -427,38 +460,44 @@ class Wedo extends Component {
     }
     return(
       <div className="customContainer">
-        <div className="titleWrapper">
-          <h1 className="sectionTitles blueTxt avenir_bold">What we do</h1>
-        </div>
-        <div className="sectionText">
-          <p>우리는 <span className="pointTxt">기업의 가치</span>를 <span className="pointTxt">증대</span>시킬<br />강력한 무기를 만들어 내고 있습니다.</p>
-        </div>
-        <div className="sectionBtns">
-          <Link to="/work"><span className="btnTxt">Go to Work</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
-        </div>
-        <div className="sectionTabSection">
-          <div className="sectionTabBtnList">
-            <Swiper className="clear" {...params}>
-            {this.state.wedoTitle.map((wedoTitles, i)=>(
-              <div className="sectionTabBtnItems" key={i}>
-                <button
-                  className={i === 0 ? "sectionTabButton weDoTabBtn tabActives" : "sectionTabButton weDoTabBtn"}
-                  onClick={(e) => this.textHandle(i)}
-                >
-                  <div>
-                    <span className="sectionTabTitle" dangerouslySetInnerHTML={{__html: wedoTitles.title}} />
-                    <span className="sectionTabCate" dangerouslySetInnerHTML={{__html: wedoTitles.sub}} />
-                    <span className="sectionTabCateTxt" dangerouslySetInnerHTML={{__html: wedoTitles.text}} />
-                  </div>
-                </button>
-              </div>
-            ))}
-            </Swiper>
-            <WedoText 
-              wedoText={this.state.propsText}
-            />
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <div className="titleWrapper">
+            <h1 className="sectionTitles blueTxt avenir_bold">What we do</h1>
           </div>
-        </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+          <div className="sectionText">
+            <p>우리는 <span className="pointTxt">기업의 가치</span>를 <span className="pointTxt">증대</span>시킬<br />강력한 무기를 만들어 내고 있습니다.</p>
+          </div>
+          <div className="sectionBtns">
+            <Link to="/work"><span className="btnTxt">Go to Work</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
+          </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+          <div className="sectionTabSection">
+            <div className="sectionTabBtnList">
+              <Swiper className="clear" {...params}>
+              {this.state.wedoTitle.map((wedoTitles, i)=>(
+                <div className="sectionTabBtnItems" key={i}>
+                  <button
+                    className={i === 0 ? "sectionTabButton weDoTabBtn tabActives" : "sectionTabButton weDoTabBtn"}
+                    onClick={(e) => this.textHandle(i)}
+                  >
+                    <div>
+                      <span className="sectionTabTitle" dangerouslySetInnerHTML={{__html: wedoTitles.title}} />
+                      <span className="sectionTabCate" dangerouslySetInnerHTML={{__html: wedoTitles.sub}} />
+                      <span className="sectionTabCateTxt" dangerouslySetInnerHTML={{__html: wedoTitles.text}} />
+                    </div>
+                  </button>
+                </div>
+              ))}
+              </Swiper>
+              <WedoText 
+                wedoText={this.state.propsText}
+              />
+            </div>
+          </div>
+        </ScrollAnimation>
       </div>
     )
   }
@@ -477,6 +516,45 @@ class WedoText extends Component {
           ))}
           </div>
         </div>
+      </div>
+    )
+  }
+}
+class SquadList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squerdInfo : 
+      [
+        {
+          squads : "Service<br> Design",
+          position : "PACO",
+          nation : "Italy",
+          url : "www.pacollaborative.com"
+        },
+        {
+          squads : "Service<br> Design1",
+          position : "PACO1",
+          nation : "Italy1",
+          url : "www.pacollaborative.com1"
+        }
+      ]
+    }
+  }
+  render() {
+    console.log(this.state.squerdInfo[0])
+    return(
+      <div>
+        카운팅
+      </div>
+    )
+  }
+}
+class timeCount extends Component {
+  render() {
+    return(
+      <div>
+        카운팅
       </div>
     )
   }
