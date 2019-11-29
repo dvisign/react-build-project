@@ -1,6 +1,7 @@
 {
   "name": "react-app",
   "version": "0.1.0",
+  "homepage": "/react/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",

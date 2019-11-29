@@ -65,7 +65,7 @@ class Nav extends Component {
         <div className="customContainer">
           <div className="clear">
             <div id="mainLogo">
-              <Link to="/">
+              <Link to={process.env.PUBLIC_URL+"/"}>
                 <img src="" alt="DBRAND" />
               </Link>
             </div>
@@ -87,16 +87,16 @@ class Nav extends Component {
         <div id="fixNavs">
           <ul className="m_menu">
             <li>
-              <NavLink activeStyle={activeStyle} to="/About">We Are</NavLink>
+              <NavLink activeStyle={activeStyle} to={process.env.PUBLIC_URL+"/About"}>We Are</NavLink>
             </li>
             <li>
-              <NavLink activeStyle={activeStyle} to="/Work">Work</NavLink>
+              <NavLink activeStyle={activeStyle} to={process.env.PUBLIC_URL+"/Work"}>Work</NavLink>
             </li>
             <li>
-              <NavLink activeStyle={activeStyle} to="/Life">Life</NavLink>
+              <NavLink activeStyle={activeStyle} to={process.env.PUBLIC_URL+"/Life"}>Life</NavLink>
             </li>
             <li>
-              <NavLink activeStyle={activeStyle} to="/Contact">Contact</NavLink>
+              <NavLink activeStyle={activeStyle} to={process.env.PUBLIC_URL+"/Contact"}>Contact</NavLink>
             </li>
           </ul>
         </div>

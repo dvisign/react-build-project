@@ -16,6 +16,7 @@ class WorkLayout extends Component {
   }
   getData = () => {
     if (this.props.host === "localhost") {
+      console.log("localhost test")
       this.setState({
         getDataGroup : [
           [
@@ -53,11 +54,12 @@ class WorkLayout extends Component {
         ]
       })
     } else {
+      console.log("axios api connect")
       axios.get("/api",{
         params : {
           bo_table : this.props.bo_table,
           status : this.props.status,
-          leng:1
+          leng:2
         }
       })
       .then(response => {
