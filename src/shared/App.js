@@ -38,15 +38,50 @@ class App extends Component {
           <Route path="/contact" component={Contact}/>
         </div> */}
         <div className="pageContents">
+          <Route exact path="/react" 
+            render={props => 
+              <Main 
+                addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} 
+                props={this.props}
+              />} 
+          />
+          <Route path="/react/about" 
+            render={props => 
+              <About 
+                addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} 
+                props={this.props}
+              />} 
+          />
           <Switch>
-            <Route exact path="/react/work" render={props => <Work addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
-            <Route exact path="/react/work/:name" render={props => <Work addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
+            <Route path="/react/work" 
+              render={props => 
+                <Work
+                  addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)}
+                  props={this.props}
+                />} 
+            />
+            <Route path="/react/work/:name" 
+              render={props => 
+                <Work
+                  addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} 
+                  props={this.props}
+                />} 
+            />
           </Switch>
-          <Route exact path="/react" render={props => <Main addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
-          <Route path="/react/about" render={props => <About addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />   
-          
-          <Route path="/react/life" render={props => <Life addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
-          <Route path="/react/contact" render={props => <Contact addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
+          <Route path="/react/life" 
+            render={props => 
+              <Life
+                addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} 
+                props={this.props}
+              />} 
+          />
+          <Route path="/react/contact" 
+            render={props => 
+              <Contact
+                addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} 
+                props={this.props}
+              />} 
+          />
         </div>
         <Footer 
         
