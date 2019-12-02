@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Swiper from 'react-id-swiper';
 import 'swiper/css/swiper.css'
-import 'css/about.css';
+import 'css/about.scss';
 import jQuery from 'jquery';
 import ScrollAnimation from 'react-animate-on-scroll';
 
@@ -16,12 +16,11 @@ class About extends Component {
   }
   componentDidMount() {
     this.callbackFunc();
-    window.addEventListener('scroll',this.scrollEvent, false)  
-    jQuery(".pageContents").stop().fadeIn(500);
+    window.addEventListener('scroll',this.scrollEvent, false)
+    document.title = 'DBRAND We Are';
   }
   componentWillUnmount() {
     window.removeEventListener('scroll',this.scrollEvent, false)
-    jQuery(".pageContents").stop().fadeOut(500);
   }
   callbackFunc = () => {
     this.props.addSomething(this.state.pages)
@@ -131,6 +130,42 @@ class About extends Component {
               </ScrollAnimation>
             </div>
           </article>
+          <article id="exp" className="articles">
+            <div className="customContainer">
+              <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                <div className="titleWrapper">
+                  <h1 className="sectionTitles blueTxt avenir_bold">Experience</h1>
+                </div>
+              </ScrollAnimation>
+              <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+                <div className="sectionText">
+                  <p><span className="pointTxt">14년간 디자인과 브랜드 고민<br/>다양한 산업군 다양한 프로젝트 경험<br/></span>우리는 앞으로 더 많은것을 경험하고 싶습니다.</p>
+                </div>
+                <TimeCount />
+                <div className="sectionBtns">
+                  <Link to="/react/Work"><span className="btnTxt">Go to Work</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
+                </div>
+              </ScrollAnimation>
+            </div>
+          </article>
+          <article id="clients" className="articles">
+            <div className="customContainer">
+              <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+                <div className="titleWrapper">
+                  <h1 className="sectionTitles blueTxt avenir_bold">Clients</h1>
+                </div>
+              </ScrollAnimation>
+            </div>
+            <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+              <Clients />
+              <div className="customContainer">
+                  <div className="sectionBtns">
+                    <Link to="/react/Work"><span className="btnTxt">Go to Work by Industry</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span></Link>
+                  </div>
+              </div>
+            </ScrollAnimation>
+          </article>
+          <Offices/>
         </section>
       </ScrollAnimation>
     )
@@ -230,12 +265,26 @@ class Way extends Component {
     let classActive = document.getElementsByClassName("wayTabBtn")[i].classList.contains("tabActives");
     if (!classActive) {
       jQuery(".wayTabBtn").removeClass("tabActives");
-      document.getElementsByClassName("wayTabBtn")[i].classList.add("tabActives")
-      this.setState({
-        ...this.state,
-        propsText : this.state.wayText[i].text
-      })
+      document.getElementsByClassName("wayTabBtn")[i].classList.add("tabActives");
+      jQuery("#wayText").stop().animate({
+        "opacity":"0"
+      },500);
+      setTimeout(
+        function() {
+          this.setState({
+            ...this.state,
+            propsText : this.state.wayText[i].text
+          })
+        }
+        .bind(this),
+        500
+      )
     }
+  }
+  componentDidUpdate() {
+    jQuery("#wayText").stop().animate({
+      "opacity":"1"
+    },500);
   }
   render() {
     return(
@@ -262,9 +311,11 @@ class Way extends Component {
               </li>
             ))}
             </ul>
-            <WayText 
-              WayText={this.state.propsText}
-            />
+            <div id="wayText">
+              <WayText 
+                WayText={this.state.propsText}
+              />
+            </div>
           </div>
         </ScrollAnimation>
       </div>
@@ -448,15 +499,30 @@ class Wedo extends Component {
     if (!classActive) {
       jQuery(".weDoTabBtn").removeClass("tabActives");
       document.getElementsByClassName("weDoTabBtn")[i].classList.add("tabActives");
-      this.setState({
-        ...this.state,
-        propsText : this.state.wedoConts[i]
-      })
+      jQuery("#wedoText").stop().animate({
+        "opacity":"0"
+      },500);
+      setTimeout(
+        function() {
+          this.setState({
+            ...this.state,
+            propsText : this.state.wedoConts[i]
+          })
+        }
+        .bind(this),
+        500
+      )
     }
+  }
+  componentDidUpdate() {
+    jQuery("#wedoText").stop().animate({
+      "opacity":"1"
+    },500);
   }
   render() {
     const params = {
-      slidesPerView: 3
+      slidesPerView: 3,
+      freeMode: true,
     }
     return(
       <div className="customContainer">
@@ -492,9 +558,11 @@ class Wedo extends Component {
                 </div>
               ))}
               </Swiper>
-              <WedoText 
-                wedoText={this.state.propsText}
-              />
+              <div id="wedoText">
+                <WedoText 
+                  wedoText={this.state.propsText}
+                />
+              </div>
             </div>
           </div>
         </ScrollAnimation>
@@ -524,7 +592,7 @@ class SquadList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      squerdInfo : 
+      squadInfo : 
       [
         {
           squads : "Service<br> Design",
@@ -533,29 +601,456 @@ class SquadList extends Component {
           url : "www.pacollaborative.com"
         },
         {
-          squads : "Service<br> Design1",
-          position : "PACO1",
-          nation : "Italy1",
-          url : "www.pacollaborative.com1"
+          squads : "Architecure /<br> Space Design",
+          position : "CSMA",
+          nation : "Italy",
+          url : "centrostilemilano.it"
+        },
+        {
+          squads : "Design<br> collaboration",
+          position : "MJD Studio",
+          nation : "Milan",
+          url : "www.michijung.com"
+        },
+        {
+          squads : "Vehicle Engineering<br> Design",
+          position : "UGP",
+          nation : "Korea",
+          url : "ugpdesign.co.kr"
+        },
+        {
+          squads : "Culture<br> Organazation",
+          position : "Callia",
+          nation : "Korea",
+          url : "www.calliacm.com"
+        },
+        {
+          squads : "Medical Market Analysis/<br> Product Analysis",
+          position : "MEDMIX",
+          nation : "Korea",
+          url : "medmix.co.kr"
+        },
+        {
+          squads : "Brand Strategy /<br> Brand Positioning",
+          position : "Julian Whang",
+          nation : "Korea / USA",
+          url : ""
+        },
+        {
+          squads : "Electric Vehicle<br> R&D",
+          position : "Mj2",
+          nation : "Korea",
+          url : ""
         }
       ]
     }
   }
   render() {
-    console.log(this.state.squerdInfo[0])
+    const params = {
+      slidesPerView: 1,
+      freeMode: true,
+    } 
+    const rows = [];
+    for (var index = 0; index < this.state.squadInfo.length; index++) {
+      rows.push(
+        index % 2 === 0 ?
+        <div key={index} className="squadItems">
+          <div>
+            <div className="squadPosition avenir_bold" dangerouslySetInnerHTML={{__html: this.state.squadInfo[index].squads}} />
+            <div className="squadName avenir_medium">
+              {this.state.squadInfo[index].position}
+            </div>
+            <div className="squadNation avenir_nomal">
+              {this.state.squadInfo[index].nation}
+            </div>
+            {this.state.squadInfo[index].url !== "" ?
+            <div className="sectionBtns">
+              <a href={"http://"+this.state.squadInfo[index].url} target="_blank" rel="noopener noreferrer">
+                <span className="btnTxt">{this.state.squadInfo[index].url}</span>
+                <span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span>
+              </a>
+            </div>
+            :
+            <div><br/><br/></div>
+            }
+          </div>
+          <div>
+            <div className="squadPosition avenir_bold" dangerouslySetInnerHTML={{__html: this.state.squadInfo[index+1].squads}} />
+            <div className="squadName avenir_light">
+              {this.state.squadInfo[index+1].position}
+            </div>
+            <div className="squadNation avenir_nomal">
+              {this.state.squadInfo[index+1].nation}
+            </div>
+            {this.state.squadInfo[index+1].url !== "" ? 
+            <div className="sectionBtns">
+              <a href={"http://"+this.state.squadInfo[index+1].url} target="_blank" rel="noopener noreferrer">
+                <span className="btnTxt">{this.state.squadInfo[index+1].url}</span>
+                <span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr.png" alt=""/></span>
+              </a>
+            </div>
+            :
+            <div><br/><br/></div>
+            }
+          </div>
+        </div>
+        :
+        ""
+      ) 
+    }
     return(
+      <Swiper {...params}>
+        <div id="squadLists" className="clear">
+          {rows}
+        </div>
+      </Swiper>
+    )
+  }
+}
+class TimeCount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expTime : "<span>00000</span>:<span>00</span>:<span>00</span>:<span>000</span>"
+    }
+  }
+  date_format = (n, digits) => {
+    var zero = '';
+    n = n.toString();
+    if (n.length < digits) {
+      zero += '0';
+    }
+    return zero + n;
+  }
+  setTimes = () => {
+    var targetTime = new Date("4/30/2005");
+    var today = new Date();
+    var resY = Math.abs((today.getFullYear() - targetTime.getFullYear()) * 8760);
+    var resMon = Math.abs((today.getMonth() - targetTime.getMonth()) * 30 * 24);
+    var resD = Math.abs((today.getDate() - targetTime.getDate()) * 24);
+    var resH = Math.abs(today.getHours() - targetTime.getHours());
+    var resM = Math.abs(today.getMinutes() - targetTime.getMinutes());
+    var resS = Math.abs(today.getSeconds() - targetTime.getSeconds());
+    var resMS = Math.abs(today.getMilliseconds() - targetTime.getMilliseconds());
+    var result = "<span>"+ parseInt(resY + resMon + resD + resH) +"</span>:";
+    result += "<span>"+this.date_format(resM, 2)+"</span>:";
+    result += "<span>"+this.date_format(resS, 2)+"</span><span id='hidden'>:";
+    result += "<span>"+this.date_format(resMS, 3)+"</span></span>";
+    return result;
+  }
+  timeInit = () => {
+    this.interval = setInterval(()=>{
+      this.setState({
+        expTime : this.setTimes()
+      })
+    })
+  }
+  componentDidMount() {
+    this.timeInit();
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  render() {
+    return (
       <div>
-        카운팅
+        <p id="timeIsSet" dangerouslySetInnerHTML={{__html: this.state.expTime}} />
       </div>
     )
   }
 }
-class timeCount extends Component {
+class Clients extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgArr : [ 
+        {
+          "logos1":"5678", 
+          "logos2":"aceluxe", 
+          "logos3":"agenell",
+          "logos4":"allthatcoffee",
+        },
+        {
+          "logos1":"AON",
+          "logos2":"asiangame", 
+          "logos3":"Audi", 
+          "logos4":"Benz",
+        },
+        {
+          "logos1":"blue",
+          "logos2":"BMW",
+          "logos3":"callia",
+          "logos4":"CLESON",
+        },
+        {
+          "logos1":"cosmetic",
+          "logos2":"cptape",
+          "logos3":"CTR",
+          "logos4":"cymetal",
+        },
+        {
+          "logos1":"designcamp",
+          "logos2":"DLF",
+          "logos3":"EDA",
+          "logos4":"edujoy",
+        },
+        {
+          "logos1":"foodworld",
+          "logos2":"GABA",
+          "logos3":"Greenk",
+          "logos4":"groon",
+        },
+        {
+          "logos1":"GWGP",
+          "logos2":"han",
+          "logos3":"himbook",
+          "logos4":"idfa",
+        },
+        {
+          "logos1":"incheon",
+          "logos2":"imberry",
+          "logos3":"incheonosealforum",
+          "logos4":"incheonT",
+        },
+        {
+          "logos1":"innertron",
+          "logos2":"iworks",
+          "logos3":"king",
+          "logos4":"korass",
+        },
+        {
+          "logos1":"KT",
+          "logos2":"L7",
+          "logos3":"maxboard",
+          "logos4":"MINI",
+        },
+        {
+          "logos1":"Mlink",
+          "logos2":"mnf24",
+          "logos3":"movata",
+          "logos4":"myspeech",
+        },
+        {
+          "logos1":"neost",
+          "logos2":"Next",
+          "logos3":"nuvovo",
+          "logos4":"NYnexmo",
+        },
+        {
+          "logos1":"Park61",
+          "logos2":"Peugeot",
+          "logos3":"PI",
+          "logos4":"PKB",
+        },
+        {
+          "logos1":"plainbiz",
+          "logos2":"PnP",
+          "logos3":"provision",
+          "logos4":"queens",
+        },
+        {
+          "logos1":"RIPC",
+          "logos2":"ris",
+          "logos3":"SAMSUNG",
+          "logos4":"sekwang",
+        },
+        {
+          "logos1":"shinilled",
+          "logos2":"snc",
+          "logos3":"SnG",
+          "logos4":"spawin",
+        },
+        {
+          "logos1":"store7",
+          "logos2":"sugarberry",
+          "logos3":"sungli",
+          "logos4":"sunny",
+        },
+        {
+          "logos1":"the",
+          "logos2":"tiffany",
+          "logos3":"tom",
+          "logos4":"wallitaly",
+        },
+        {
+          "logos1":"wiz",
+          "logos2":"youngdonggagu",
+          "logos3":"",
+          "logos4":""
+        }
+      ]
+    }
+  }
   render() {
+    const params = {
+      slidesPerView: 8,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      freeMode: true,
+    } 
     return(
       <div>
-        카운팅
+        <Swiper {...params}>
+        {this.state.imgArr.map((imgArrs, i)=>(
+          <div key={i}>
+            {imgArrs.logos1 !== "" ?
+            <div className="logoImgs">
+              <img src={"http://www.dbrand.co.kr/bbs/img/client/"+imgArrs.logos1+".png"} alt=""/>
+            </div>
+            :
+            ""
+            }            
+            {imgArrs.logos2 !== "" ?
+            <div className="logoImgs">
+              <img src={"http://www.dbrand.co.kr/bbs/img/client/"+imgArrs.logos2+".png"} alt=""/>
+            </div>
+            :
+            ""
+            }
+            {imgArrs.logos3 !== "" ?
+            <div className="logoImgs">
+              <img src={"http://www.dbrand.co.kr/bbs/img/client/"+imgArrs.logos3+".png"} alt=""/>
+            </div>
+            :
+            ""
+            }
+            {imgArrs.logos4 !== "" ?
+            <div className="logoImgs">
+              <img src={"http://www.dbrand.co.kr/bbs/img/client/"+imgArrs.logos4+".png"} alt=""/>
+            </div>
+            :
+            ""
+            }
+          </div>
+        ))}
+        </Swiper>
       </div>
+    )
+  }
+}
+class Offices extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      backgrounds : [
+        "officeImg.jpg",
+        "slideImgs2.jpg",
+        "officeImg.jpg"
+      ],
+      backgroundPos : "kr",
+      point : [
+        {
+          value : "kr",
+          pointName : "Songdo",
+          pointAddress : "Incheon Yeonsu-gu Songdogwahak-ro32<br> Songdo Techno Park IT Center",
+          pointTel : "+82 2.1544.0218"
+        },
+        {
+          value : "it",
+          pointName : "Milano",
+          pointAddress : "Via Giuseppe Ripamonti 137.<br> OPIFICIO. 20141. MILAN. ITALY",
+          pointTel : "+39-339528172"
+        }
+      ]
+    }
+  }
+  backChange = (pos) => {
+    jQuery("#officeSlider").stop().animate({
+      "opacity":"0"
+    },500);
+    jQuery(".officeInfoItems").removeClass("officeActive");
+    document.getElementById("point_"+pos).classList.add("officeActive")
+    setTimeout(
+      function() {
+        if (pos === "kr") {
+          if (this.state.backgroundPos !== "kr") {
+            this.setState({
+              ...this.state,
+              backgrounds : [
+                "officeImg.jpg",
+                "slideImgs2.jpg",
+                "officeImg.jpg"
+              ],
+              backgroundPos : "kr"
+            })
+          }
+        }
+        if (pos === "it") {
+          if (this.state.backgroundPos !== "it") {
+            this.setState({
+              ...this.state,
+              backgrounds : [
+                "slideImgs2.jpg",
+                "slideImgs.jpg",
+                "officeImg.jpg",
+                "slideImgs.jpg"
+              ],
+              backgroundPos : "it"
+            })
+          }
+        }
+      }
+      .bind(this),
+      500
+    )
+  }
+  componentDidUpdate() {
+    jQuery("#officeSlider").stop().animate({
+      "opacity":"1"
+    },500);
+  }
+  render() {
+    const params = {
+      slidesPerView: 1,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      }
+    }
+    return(
+      <article id="offices" className="sliderImgs">
+        <div id="officeSlider">
+          <div className="viewLayouts"></div>
+          <div className="fixedLayouts">
+            <Swiper {...params}>
+            {this.state.backgrounds.map((backImg,i)=>(
+              <div className="officeSlideItems" key={i} style={{backgroundImage:"url(http://www.dbrand.co.kr/bbs/img/"+backImg+")"}}></div>
+            ))}
+            </Swiper>
+          </div>
+        </div>
+        <div className="customContainer">
+          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+            <div className="titleWrapper">
+              <h1 className="sectionTitles pinkTxt avenir_bold">Office</h1>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animateIn="fadeInUp" delay={300} animateOnce={true}>
+            <ul id="officeInfo">
+            {this.state.point.map((points, i)=>(
+              <li key={i}>
+                <button className={points.value === "kr" ? "officeInfoItems officeActive" : "officeInfoItems"} id={"point_"+points.value} onClick={e => this.backChange(points.value)}>
+                  <div>
+                    <p className="officePoint avenir_heavy">{points.pointName}</p>
+                  </div>
+                  <div>
+                    <p className="officeAddress avenir_light" dangerouslySetInnerHTML={{__html: points.pointAddress}}/>
+                  </div>
+                  <div>
+                    <p className="officeTell">{points.pointTel}</p>
+                  </div>
+                </button>
+              </li>
+            ))}
+            </ul>
+            <div className="sectionBtns">
+              <Link to="/react/Contact"><span className="btnTxt">Go to Contact</span><span className="btnArr"><img src="http://www.dbrand.co.kr/bbs/img/btnArr_w.png" alt=""/></span></Link>
+            </div>
+          </ScrollAnimation>
+        </div>
+      </article>
     )
   }
 }

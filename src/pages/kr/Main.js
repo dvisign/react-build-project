@@ -5,8 +5,7 @@ import ContactLayout from 'components/main/ContactLayout'
 import ScrollAnimation from 'react-animate-on-scroll';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import 'css/main.css';
-import jQuery from 'jquery';
+import 'css/main.scss';
 
 class Main extends Component {
   constructor(props) {
@@ -14,21 +13,16 @@ class Main extends Component {
     this.state = {
       pages : "main"
     }
-    console.log("constructor");
   }
   componentDidMount() {
     this.callbackFunc();
-    jQuery(".pageContents").stop().fadeIn(500);
-  }
-  componentWillUnmount() {
-    jQuery(".pageContents").stop().fadeOut(500);
+    document.title = 'DBRAND';
   }
   callbackFunc = () => {
     this.props.addSomething(this.state.pages)
   }
   render() {
     const hostName = window.location.hostname;
-    console.log("render");
     return (
       <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
         <Mainslider 

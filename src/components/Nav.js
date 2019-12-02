@@ -65,7 +65,12 @@ class Nav extends Component {
         <div className="customContainer">
           <div className="clear">
             <div id="mainLogo">
-              <Link to={process.env.PUBLIC_URL+"/"}>
+              {/* build */}
+              {/* <Link to={process.env.PUBLIC_URL+"/"}>
+                <img src="" alt="DBRAND" />
+              </Link> */}
+              {/* localhost */}
+              <Link to={"/react/"}>
                 <img src="" alt="DBRAND" />
               </Link>
             </div>
@@ -85,7 +90,8 @@ class Nav extends Component {
           </div>
         </div>
         <div id="fixNavs">
-          <ul className="m_menu">
+          {/* build */}
+          {/* <ul className="m_menu">
             <li>
               <NavLink activeStyle={activeStyle} to={process.env.PUBLIC_URL+"/About"}>We Are</NavLink>
             </li>
@@ -97,6 +103,21 @@ class Nav extends Component {
             </li>
             <li>
               <NavLink activeStyle={activeStyle} to={process.env.PUBLIC_URL+"/Contact"}>Contact</NavLink>
+            </li>
+          </ul> */}
+          {/* localhost */}
+          <ul className="m_menu">
+            <li>
+              <NavLink activeStyle={activeStyle} to={"/react/About"}>We Are</NavLink>
+            </li>
+            <li>
+              <NavLink activeStyle={activeStyle} to={"/react/Work"}>Work</NavLink>
+            </li>
+            <li>
+              <NavLink activeStyle={activeStyle} to={"/react/Life"}>Life</NavLink>
+            </li>
+            <li>
+              <NavLink activeStyle={activeStyle} to={"/react/Contact"}>Contact</NavLink>
             </li>
           </ul>
         </div>

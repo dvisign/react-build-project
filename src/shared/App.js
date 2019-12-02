@@ -14,7 +14,6 @@ class App extends Component {
       pages : "main"
     }
   }    
-
   addSomething(stateValueFromChild) {
     if (this.state.pages !== stateValueFromChild) {
       this.setState({
@@ -38,7 +37,7 @@ class App extends Component {
           </Switch>
           <Route path="/contact" component={Contact}/>
         </div> */}
-        <div className="pageContents" >
+        <div className="pageContents">
           <Switch>
             <Route exact path="/react/work" render={props => <Work addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
             <Route exact path="/react/work/:name" render={props => <Work addSomething={(stateValueFromChild) => this.addSomething(stateValueFromChild)} />} />
