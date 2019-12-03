@@ -1,38 +1,45 @@
-import React, { Component } from 'react'
-import queryString from 'query-string';
+import React, { Component } from 'react';
 import axios from 'axios';
-
 class WorkContain extends Component {
-  querys = () => {
-    const query = queryString.parse(this.props.data.location.search);
-    return query;
+  constructor(props) {
+    super(props);
+    this.state = {
+      board : this.props.tabData.bo_table
+    };
   }
-  getData = () => {
-    if (window.location.host === "localhost:3000") {
-      console.log("로컬");
-      console.log(this.querys().status)
+  componentDidMount() {
+    this.test();
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.tabData.bo_table !== this.state.board) {
+      console.log("1회 렌더링");
+      console.log(nextProps.tabData.bo_table)
+      console.log(this.state.board)
+      this.test();
+      return true;
     } else {
-      axios.get("/api", {
-        params: {
-          bo_table : this.querys().bo_table,
-          status : this.querys().status
-        }
-      })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(response => {
-        console.log(response);
-      })
+      console.log("렌더링 않함")
+      console.log(nextProps.tabData.bo_table)
+      console.log(this.state.board)
+      return false;
     }
   }
-  componentWillMount() {
-    this.getData();
+  test = () => {
+    this.setState({
+      board : this.props.tabData.bo_table
+    })
   }
   render() {
     return (
       <div>
-        adfsaf
+        <div className="pageTitles">
+          <h1 className="avenir_heavy">Work</h1>
+        </div>
+        <div>
+          <div id="workDataLists" className="clear">
+            {this.props.tabData.bo_table}
+          </div>
+        </div>
       </div>
     )
   }

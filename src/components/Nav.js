@@ -111,7 +111,7 @@ class Nav extends Component {
               <NavLink activeStyle={activeStyle} to={"/react/About"}>We Are</NavLink>
             </li>
             <li>
-              <NavLink activeStyle={activeStyle} to={"/react/Work"}>Work</NavLink>
+              <NavLink activeStyle={activeStyle} to={"/react/Work/?status=work&bo_table=all"}>Work</NavLink>
             </li>
             <li>
               <NavLink activeStyle={activeStyle} to={"/react/Life"}>Life</NavLink>

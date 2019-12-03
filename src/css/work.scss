@@ -1,0 +1,55 @@
+#works {
+  margin-top: 120px;
+  #workNavs {
+    margin:10px auto;
+    line-height: 50px;
+    li {
+      float:left;
+      a {
+        font-size: 21px;
+        transition: 0.3s;
+        color: #000;
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+      a:after {
+        position: absolute;
+        bottom: 14px;
+        height: 5px;
+        width: 0;
+        background: #ff2f92;
+        content: "";
+        display: block;
+        left: 0;
+        transition: 0.5s;
+        z-index: -1;
+      }
+      a:hover:after,
+      .tabActive:after {
+        width: 100%;
+      }
+    }
+    li:first-child {
+      margin-right: 20px;
+    }
+    li:not(:first-child) {
+      margin: 0 20px;
+    }    
+  }
+  .pageTitles {
+    font-size: 60px;
+    color: #232f61;
+    text-align: left;
+    margin-bottom: 60px;
+  }
+  #workDataLists {
+    div {
+      float: left;
+      width:calc(100% / 4);
+      img {
+        width:100%;
+      }
+    }
+  }
+}
