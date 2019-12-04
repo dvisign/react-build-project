@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import ScrollAnimation from 'react-animate-on-scroll';
-import WorkContain from 'components/work/WorkContain';
+import WorkList from 'components/board/WorkList';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import "css/work.scss";
@@ -18,20 +18,17 @@ class Work extends Component {
   callbackFunc = () => {
     this.props.addSomething(this.state.pages);
   }
-  querys = () => {
-    const query = queryString.parse(this.props.props.location.search);
-    return query;
-  }
   render() {
+    const query = queryString.parse(this.props.props.location.search);
     return (
       // ScrollAnimation animateIn="fadeIn" animateOnce={true}
       <div id="works">
         <div className="customContainer">
           <WorkNav 
-            tabData = {this.querys()}
+            tabData = {query}
           />
-          <WorkContain
-            tabData = {this.querys()}
+          <WorkList
+            tabData = {query}
           />
         </div>
       </div>
@@ -40,17 +37,17 @@ class Work extends Component {
 }
 class WorkNav extends Component {
   render() {
-    const isActive = this.props.tabData.bo_table;
+    const isActive = this.props.tabData.category;
     return(
       <ul id="workNavs" className="clear">
         <li>
-          <Link className={isActive === "all" ? "tabActive avenir_medium" : "avenir_medium"} to="/react/Work/?status=work&bo_table=all">All Project</Link>
+          <Link className={isActive === "all" ? "tabActive avenir_medium" : "avenir_medium"} to="/react/Work/?status=work&category=all">All Project</Link>
         </li>
         <li>
-          <Link className={isActive === "work" ? "tabActive avenir_medium" : "avenir_medium"} to="/react/Work/?status=work&bo_table=work">Type of Work</Link>
+          <Link className={isActive === "work" ? "tabActive avenir_medium" : "avenir_medium"} to="/react/Work/?status=work&category=work">Type of Work</Link>
         </li>
         <li>
-          <Link className={isActive === "industry" ? "tabActive avenir_medium" : "avenir_medium"} to="/react/Work/?status=work&bo_table=industry">Type of Industry</Link>
+          <Link className={isActive === "industry" ? "tabActive avenir_medium" : "avenir_medium"} to="/react/Work/?status=work&category=industry">Type of Industry</Link>
         </li>
       </ul>
     )

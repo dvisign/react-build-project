@@ -46,10 +46,35 @@
   #workDataLists {
     div {
       float: left;
-      width:calc(100% / 4);
-      img {
-        width:100%;
+      width:calc((100% / 4) - 10px);
+      margin-right: calc(40px / 3);
+      margin-bottom: calc(40px / 3);
+      a {
+        display: block;
+        .projectTitle {
+          font-size: 20px;
+          margin-bottom: 10px;
+          position: relative;
+          text-align: left;
+          color: #000;
+        }
+        .listThumbs {
+          position: relative;
+          padding-bottom: 56.26%;
+          overflow: hidden;
+          width: 100%;
+          img {
+            width:100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
       }
+    }
+    div:nth-child(4n){
+      margin-right: 0;
     }
   }
 }
